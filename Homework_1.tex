@@ -1,5 +1,6 @@
-\documentclass[12pt]{article}
 
+\documentclass[12pt]{article}
+\usepackage{amssymb}
 \begin{document}
 \title{TCSS 343 - Assignment 1}
 \maketitle
@@ -11,8 +12,16 @@ Prove the theorem below.
 Use a \textbf{direct proof} to find constants that satisfy the definition of \begin{math}\Theta(n^2)\end{math} or use the \textbf{limit test}.  
 Make sure your proof is complete, concise, clear and precise.
 \\\\\textbf{Theorem 1.} 
-\begin{math}n^5-64n^3-n^2 \epsilon \Theta(n^5)\end{math}\\\\For the first theorem a limit test was used to ensure that polynomial given was \begin{math}\Theta(n^5)\end{math}. For most limits of 
+\begin{math}n^5-64n^3-n^2 \epsilon \Theta(n^5)\end{math}
+\\\\For the first theorem a limit test was used to ensure that polynomial given was \begin{math}\Theta(n^5)\end{math}. For most limits of 
 this nature it is best to factor the polynomial, this usually results in a short elegant solution. 
 \[ \lim_{n \to \infty}  \frac{n^5-64n^3-n^2}{n^5} = \lim_{n \to \infty} \frac{n^5}{n^5}\Bigg(\frac{1-\frac{64}{n^2}-\frac{1}{n^3}}{1}\Bigg) = \lim_{n \to \infty} 1\Bigg(\frac{1-0-0}{1}\Bigg) = \lim_{n \to \infty} 1 = 1\]
-\\Since the limit converged to 1, a positive constant value, we may say that theorem 1 is indeed true. 
+\\Since the limit converged to 1, a positive constant value, we may say that theorem 1 is indeed true.\\\\
+
+
+\noindent Prove Gauss’s sum using induction on \begin{math}n\end{math}. Make sure to include a base case for \begin{math} n \end{math} and an inductive hypothesis and an inductive step for \begin{math}n > 1\end{math}.\\
+
+\noindent \textbf{Theorem 2.}
+\begin{math}P(n):\sum\limits_{i = 1}^{\infty} i = \frac{n(n + 1)}{2} \forall n \epsilon \mathbb{Z}_+  \end{math}
+
 \end{document}
