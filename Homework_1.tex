@@ -19,7 +19,7 @@ this nature it is best to factor the polynomial, this usually results in a short
 \\Since the limit converged to 1, a positive constant value, we may say that theorem 1 is indeed true.\\\\
 
 
-\noindent Prove Gauss’s sum using induction on \begin{math}n\end{math}. Make sure to include a base case for \begin{math} n \end{math} and an inductive hypothesis and an inductive step for \begin{math}n > 1\end{math}.\\
+\noindent Prove Gauss’s sum using induction on \begin{math}n\end{math}. Make sure to include a base case for \begin{math} n = 1\end{math} and an inductive hypothesis and an inductive step for \begin{math}n > 1\end{math}.\\
 
 \noindent \textbf{Theorem 2.}
 \begin{math}P(n):\sum\limits_{i = 1}^{n} i = \frac{n(n + 1)}{2} \forall n \epsilon \mathbb{Z}_+  \end{math}\\
@@ -40,5 +40,28 @@ this nature it is best to factor the polynomial, this usually results in a short
 &\frac{(k + 1)(k+2)}{2}= \frac{(k + 1)(k+2)}{2} \hspace{0.3cm}\qedsymbol
 \end{align}
 \end{enumerate}
+\noindent Prove Gauss’s sum using induction on \begin{math}n\end{math}. Make sure to include a base case for \begin{math} n = 1\end{math} and an inductive hypothesis and an inductive step for \begin{math}n > 1\end{math}.\\\\
+\noindent \textbf{Theorem 3.}
+\begin{math}P(n):\sum\limits_{i = 1}^{n} i^5 = \big(\frac{n(n + 1)}{2}\big)^2\frac{2n^2+2n-1}{3} \forall n \epsilon \mathbb{Z}_+  \end{math}
+
+\begin{enumerate}
+\item Base Case:\\
+\begin{align}
+&P(1):\sum\limits_{i = 1}^{1} i^5 = \big(\frac{1(1 + 1)}{2}\big)^2\frac{2(1)^2+2(1)-1}{3}\\
+&1^5 = \big(\frac{1(2)}{2}\big)^2\frac{3}{3}\\
+&1 = 1
+\end{align}
+\item Inductive Hypothesis:
+\[P(k):\sum\limits_{i = 1}^{k} i^5 = \big(\frac{k(k + 1)}{2}\big)^2\frac{2k^2+2k-1}{3} \forall k \epsilon \mathbb{Z}_+  \]
+\item Inductive Step:
+
+\begin{align}
+&P(k+1):\sum\limits_{i = 1}^{k+1} i^5 = \big(\frac{(k+1)(k + 1 + 1)}{2}\big)^2\frac{2(k+1)^2+2(k+1)-1}{3} \forall k \epsilon \mathbb{Z}_+ \\
+&\sum\limits_{i = 1}^{k} i^5 + (k + 1)^5 = \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
+&\bigg(\frac{k(k + 1)}{2}\bigg)^2\frac{2k^2+2k-1}{3} + (k + 1)^5 = \bigg(\frac{1}{12}\bigg)(k^2+3k+2)^2(2k^2+6k+3)
+\qedsymbol
+\end{align}
+\end{enumerate}
+
 
 \end{document}
