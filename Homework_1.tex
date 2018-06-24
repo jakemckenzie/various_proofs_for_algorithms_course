@@ -1,6 +1,6 @@
 
 \documentclass[12pt]{article}
-\usepackage{amssymb}
+\usepackage{amsmath,amssymb,amsthm}
 \begin{document}
 \title{TCSS 343 - Assignment 1}
 \maketitle
@@ -22,6 +22,23 @@ this nature it is best to factor the polynomial, this usually results in a short
 \noindent Prove Gauss’s sum using induction on \begin{math}n\end{math}. Make sure to include a base case for \begin{math} n \end{math} and an inductive hypothesis and an inductive step for \begin{math}n > 1\end{math}.\\
 
 \noindent \textbf{Theorem 2.}
-\begin{math}P(n):\sum\limits_{i = 1}^{\infty} i = \frac{n(n + 1)}{2} \forall n \epsilon \mathbb{Z}_+  \end{math}
+\begin{math}P(n):\sum\limits_{i = 1}^{n} i = \frac{n(n + 1)}{2} \forall n \epsilon \mathbb{Z}_+  \end{math}\\
+
+\begin{enumerate}
+\item Base Case:\\
+\[P(1):\sum\limits_{i = 1}^{1} i = 1  = \frac{1(1+1)}{2} = \frac{2}{2} = 1\]
+\item Inductive Hypothesis:
+\[P(k):\sum\limits_{i = 1}^{k} i = \frac{k(k + 1)}{2} \forall k \epsilon \mathbb{Z}_+\]
+\item Inductive Step:
+
+\begin{align}
+&P(k+1):\sum\limits_{i = 1}^{k+1} i = \frac{(k + 1)(k+2)}{2} \forall k \epsilon \mathbb{Z}_+\\
+&\sum\limits_{i = 1}^{k} i + (k + 1)= \frac{(k + 1)(k+2)}{2}\\
+&\frac{k(k+1)}{2} + (k+1)= \frac{(k + 1)(k+2)}{2}\\
+&\frac{k(k+1)}{2} + \frac{2(k+1)}{2}= \frac{(k + 1)(k+2)}{2}\\
+&\frac{k(k+1)+ 2(k+1)}{2}= \frac{(k + 1)(k+2)}{2}\\
+&\frac{(k + 1)(k+2)}{2}= \frac{(k + 1)(k+2)}{2} \hspace{0.3cm}\qedsymbol
+\end{align}
+\end{enumerate}
 
 \end{document}
