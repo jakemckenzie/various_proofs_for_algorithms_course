@@ -23,7 +23,7 @@ this nature it is best to factor the polynomial, this usually results in a short
 
 \noindent \textbf{Theorem 2.}
 \begin{math}P(n):\sum\limits_{i = 1}^{n} i = \frac{n(n + 1)}{2} \forall n \epsilon \mathbb{Z}_+  \end{math}\\
-
+\\\\For this proof I used the fundamental theorem of algebra to help assist me. I hope that the steps are clear.\\
 \begin{enumerate}
 \item Base Case:\\
 \[P(1):\sum\limits_{i = 1}^{1} i = 1  = \frac{1(1+1)}{2} = \frac{2}{2} = 1\]
@@ -43,8 +43,9 @@ P(k+1):\sum\limits_{i = 1}^{k+1} i &= \frac{(k + 1)(k+2)}{2} \forall k \epsilon 
 \noindent Prove Gauss’s sum using induction on \begin{math}n\end{math}. Make sure to include a base case for \begin{math} n = 1\end{math} and an inductive hypothesis and an inductive step for \begin{math}n > 1\end{math}.\\\\
 \noindent \textbf{Theorem 3.}
 \begin{math}P(n):\sum\limits_{i = 1}^{n} i^5 = \big(\frac{n(n + 1)}{2}\big)^2\frac{2n^2+2n-1}{3} \forall n \epsilon \mathbb{Z}_+  \end{math}
-
+\\\\For this proof I used the fundamental theorem of algebra to help assist me. The last three steps of the inductive step to ensure \begin{math}P(k+1)\end{math} step I obtained those steps by expanding the right hand side and ensuring that each polynomial on the left hand side matched the right hand side. Those were included on the left hand side in reverse to ensure continuity.\\
 \begin{enumerate}
+
 \item Base Case:\\
 \begin{align*}
 P(1):\sum\limits_{i = 1}^{1} i^5 &= \big(\frac{1(1 + 1)}{2}\big)^2\frac{2(1)^2+2(1)-1}{3}\\
@@ -62,16 +63,15 @@ P(1):\sum\limits_{i = 1}^{1} i^5 &= \big(\frac{1(1 + 1)}{2}\big)^2\frac{2(1)^2+2
 &\sum\limits_{i = 1}^{k} i^5 + (k + 1)^5 = \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
 &\bigg(\frac{k(k + 1)}{2}\bigg)^2\frac{2k^2+2k-1}{3} + (k + 1)^5 = \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
 &\bigg(\frac{1}{12}\bigg)[k^2(k+1)^2(2k^2+2k-1)+12(k+1)^5]= \\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
-&\bigg(\frac{1}{12}\bigg)[(k^4+2k^3+k^2)(2k^2+2k-1)+12(k+1)^5]=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
-&\bigg(\frac{1}{12}\bigg)(2k^6+6k^5+5k^4-k^2+12k^5+60k^4+120k^3+120k^2+60k+12))=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}
+&\bigg(\frac{1}{12}\bigg)[(k^4+2k^3+k^2)(2k^2+2k-1)+12(k+1)^5]=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}
 \end{align*}
 \begin{align*}
+&\bigg(\frac{1}{12}\bigg)(2k^6+6k^5+5k^4-k^2+12k^5+60k^4+120k^3+120k^2+60k+12))=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
 &\bigg(\frac{1}{12}\bigg)(2k^6+18k^5+65k^4+120k^3+119k^2+60k+12))=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
 &\bigg(\frac{1}{12}\bigg)(k^4+6k^3+13k^2+12k+4)(2k^2+6k+3)=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
 &\bigg(\frac{1}{12}\bigg)(k^2+3k+2)^2(2k^2+6k+3)= \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
 &\big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}= \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\hspace{0.3cm}\qedsymbol
 \end{align*}
 \end{enumerate}
-
-
+I apologize for the alignment being weird for this proof above, this is the best I could do for the time allotted. 
 \end{document}
