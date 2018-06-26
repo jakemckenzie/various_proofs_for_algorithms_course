@@ -59,19 +59,43 @@ P(1):\sum\limits_{i = 1}^{1} i^5 &= \big(\frac{1(1 + 1)}{2}\big)^2\frac{2(1)^2+2
 \end{align*}
 \item Inductive Step:
 \begin{align*}
-&P(k+1):\sum\limits_{i = 1}^{k+1} i^5 = \big(\frac{(k+1)(k + 1 + 1)}{2}\big)^2\frac{2(k+1)^2+2(k+1)-1}{3} \forall k \epsilon \mathbb{Z}_+ \\
-&\sum\limits_{i = 1}^{k} i^5 + (k + 1)^5 = \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
-&\bigg(\frac{k(k + 1)}{2}\bigg)^2\frac{2k^2+2k-1}{3} + (k + 1)^5 = \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
-&\bigg(\frac{1}{12}\bigg)[k^2(k+1)^2(2k^2+2k-1)+12(k+1)^5]= \\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
-&\bigg(\frac{1}{12}\bigg)[(k^4+2k^3+k^2)(2k^2+2k-1)+12(k+1)^5]=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}
+P(k+1):\sum\limits_{i = 1}^{k+1} i^5 = \big(\frac{(k+1)(k + 1 + 1)}{2}\big)^2\frac{2(k+1)^2+2(k+1)-1}{3} \forall k \epsilon \mathbb{Z}_+ \\
+\sum\limits_{i = 1}^{k} i^5 + (k + 1)^5 = \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3} \\
+\bigg(\frac{k(k + 1)}{2}\bigg)^2\frac{2k^2+2k-1}{3} + (k + 1)^5 &=\\
+\bigg(\frac{1}{12}\bigg)[k^2(k+1)^2(2k^2+2k-1)+12(k+1)^5]&= \\
+\bigg(\frac{1}{12}\bigg)[(k^4+2k^3+k^2)(2k^2+2k-1)+12(k+1)^5]&=\\
 \end{align*}
 \begin{align*}
-&\bigg(\frac{1}{12}\bigg)(2k^6+6k^5+5k^4-k^2+12k^5+60k^4+120k^3+120k^2+60k+12))=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
-&\bigg(\frac{1}{12}\bigg)(2k^6+18k^5+65k^4+120k^3+119k^2+60k+12))=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
-&\bigg(\frac{1}{12}\bigg)(k^4+6k^3+13k^2+12k+4)(2k^2+6k+3)=\\& \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
-&\bigg(\frac{1}{12}\bigg)(k^2+3k+2)^2(2k^2+6k+3)= \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\\
-&\big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}= \big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}\hspace{0.3cm}\qedsymbol
+\bigg(\frac{1}{12}\bigg)(2k^6+6k^5+5k^4-k^2+12k^5+60k^4+120k^3+120k^2+60k+12))&=\\
+\bigg(\frac{1}{12}\bigg)(2k^6+18k^5+65k^4+120k^3+119k^2+60k+12))&=\\
+\bigg(\frac{1}{12}\bigg)(k^4+6k^3+13k^2+12k+4)(2k^2+6k+3)&=\\
+\bigg(\frac{1}{12}\bigg)(k^2+3k+2)^2(2k^2+6k+3)&=\\
+\big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}&=\hspace{0.3cm}\qedsymbol
 \end{align*}
 \end{enumerate}
-I apologize for the alignment being weird for this proof above, this is the best I could do for the time allotted. 
+Prove by induction that for all natural numbers \begin{math}x\end{math} and \begin{math}n\end{math}, \begin{math}x^n - 1\end{math} is divisible by \begin{math}x - 1\end{math}.\\\\
+\noindent For this proof I decided to show that \begin{math}(x^n - 1)\bmod{x - 1}\equiv 0\end{math} because that statement is equivalent to saying \begin{math}x^n - 1\mid x - 1\end{math}.\\\\
+\noindent Show \begin{math}\forall x,n \epsilon \mathbb{Z}_+ ;P(x,n):(x^n - 1)\bmod{x - 1}\equiv 0\end{math} 
+\begin{enumerate}
+\item Base Case:\\
+\[P(1,1):(1^1 - 1)\bmod{1 - 1}\equiv 0 \mod 0 \equiv 0\]\\
+This is assuming that we define \begin{math}a \mod 0 \equiv 0\end{math} where a may be any integer. This answer depends on how we decide to define the modulus function. This is assuming we define the modulus to be the distance of any two integers from each other. In many modern programming languages and applications this operation is undefined. I see no other way to complete this proof without ignoring this limitation and using the more liberal definition.
+\item Inductive Hypothesis:
+\[P(a,b):(a^b - 1)\bmod{a - 1}\equiv 0\ \forall a,b \epsilon \mathbb{Z}_+\]
+\item Inductive Step:\\
+For this proof I made heavy use of the binomial theorem, specifically the power expansion on \begin{math}(1+x)^n\end{math}.
+\begin{align*}
+P(a+1,b+1):((a+1)^{b+1} - 1)\bmod{(a + 1 - 1)}&\equiv 0\ ; \forall a,b \epsilon \mathbb{Z}_+\\
+((a+1)(a+1)^b - 1)\bmod{a}&\equiv 0\\
+((a+1)\sum\limits_{i = 0}^{b} {b \choose i} a^i - 1)\bmod{a}&\equiv 0\\
+(\sum\limits_{i = 0}^{b} {b \choose i} a^{i+1} + \sum\limits_{i = 0}^{b} {b \choose i} a^i - 1)\bmod{a}&\equiv 0\\
+(\sum\limits_{i = 0}^{b} {b \choose i} a^{i+1} + \sum\limits_{i = 1}^{b - 1} {b \choose i} a^i + {b \choose b}(a^b + 1) - 1)\bmod{a}&\equiv 0\\
+(\sum\limits_{i = 0}^{b} {b \choose i} a^{i+1} + \sum\limits_{i = 1}^{b - 1} {b \choose i} a^i + (1)(a^b + 1 - 1)\bmod{a}&\equiv 0\\
+(\sum\limits_{i = 0}^{b} {b \choose i} a^{i+1} + \sum\limits_{i = 1}^{b - 1} {b \choose i} a^i + a^b)\bmod{a}&\equiv 0\\
+((\sum\limits_{i = 0}^{b} {b \choose i} a^{i+1})\bmod{a} + (\sum\limits_{i = 1}^{b - 1} {b \choose i} a^i)\bmod{a} + (a^b)\bmod{a})\bmod{a}&\equiv 0\\
+(0 + 0 + 0)\bmod{a}&\equiv 0\\
+0\bmod{a}&\equiv 0\\
+0&\equiv 0\\
+\end{align*}
+\end{enumerate}
 \end{document}
