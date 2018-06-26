@@ -37,7 +37,8 @@ P(k+1):\sum\limits_{i = 1}^{k+1} i &= \frac{(k + 1)(k+2)}{2} \forall k \epsilon 
 \frac{k(k+1)}{2} + (k+1)&= \frac{(k + 1)(k+2)}{2}\\
 \frac{k(k+1)}{2} + \frac{2(k+1)}{2}&= \frac{(k + 1)(k+2)}{2}\\
 \frac{k(k+1)+ 2(k+1)}{2}&= \frac{(k + 1)(k+2)}{2}\\
-\frac{(k + 1)(k+2)}{2}&= \frac{(k + 1)(k+2)}{2} \hspace{0.3cm}\qedsymbol
+\frac{(k + 1)(k+2)}{2}&= \frac{(k + 1)(k+2)}{2}\\
+&\hspace{0.3cm}\qedsymbol
 \end{align*}
 \end{enumerate}
 \noindent Prove Gauss’s sum using induction on \begin{math}n\end{math}. Make sure to include a base case for \begin{math} n = 1\end{math} and an inductive hypothesis and an inductive step for \begin{math}n > 1\end{math}.\\\\
@@ -70,7 +71,8 @@ P(k+1):\sum\limits_{i = 1}^{k+1} i^5 = \big(\frac{(k+1)(k + 1 + 1)}{2}\big)^2\fr
 \bigg(\frac{1}{12}\bigg)(2k^6+18k^5+65k^4+120k^3+119k^2+60k+12))&=\\
 \bigg(\frac{1}{12}\bigg)(k^4+6k^3+13k^2+12k+4)(2k^2+6k+3)&=\\
 \bigg(\frac{1}{12}\bigg)(k^2+3k+2)^2(2k^2+6k+3)&=\\
-\big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}&=\hspace{0.3cm}\qedsymbol
+\big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}&=\\
+&\hspace{0.3cm}\qedsymbol
 \end{align*}
 \end{enumerate}
 Prove by induction that for all natural numbers \begin{math}x\end{math} and \begin{math}n\end{math}, \begin{math}x^n - 1\end{math} is divisible by \begin{math}x - 1\end{math}.\\\\
@@ -81,7 +83,7 @@ Prove by induction that for all natural numbers \begin{math}x\end{math} and \beg
 \[P(1,1):(1^1 - 1)\bmod{1 - 1}\equiv 0 \mod 0 \equiv 0\]\\
 This is assuming that we define \begin{math}a \mod 0 \equiv 0\end{math} where a may be any integer. This answer depends on how we decide to define the modulus function. This is assuming we define the modulus to be the distance of any two integers from each other. In many modern programming languages and applications this operation is undefined. I see no other way to complete this proof without ignoring this limitation and using the more liberal definition.
 \item Inductive Hypothesis:
-\[P(a,b):(a^b - 1)\bmod{a - 1}\equiv 0\ \forall a,b \epsilon \mathbb{Z}_+\]
+\[P(a,b):(a^b - 1)\bmod{a - 1}\equiv 0\ ; \forall a,b \epsilon \mathbb{Z}_+\]
 \item Inductive Step:\\
 For this proof I made heavy use of the binomial theorem, specifically the power expansion on \begin{math}(1+x)^n\end{math}.
 \begin{align*}
@@ -96,6 +98,34 @@ P(a+1,b+1):((a+1)^{b+1} - 1)\bmod{(a + 1 - 1)}&\equiv 0\ ; \forall a,b \epsilon 
 (0 + 0 + 0)\bmod{a}&\equiv 0\\
 0\bmod{a}&\equiv 0\\
 0&\equiv 0\\
+&\hspace{0.3cm}\qedsymbol
 \end{align*}
 \end{enumerate}
+Prove by induction that \begin{math}x^n - y^n\end{math} is divisible by \begin{math}x - y\end{math} for all natural numbers x, y (with \begin{math}x \not = y\end{math}), and n.\\\\
+\noindent Show \begin{math}\forall x,y,n \epsilon \mathbb{Z}_+ ; P(x,y,n):(x^n-y^n)\bmod{x-y} \equiv 0\end{math}
+\begin{enumerate}
+\item Base Case:\\
+\[P(1,1,1):(1^1 - 1^1)\bmod{1 - 1}\equiv 0 \mod 0 \equiv 0\]\\
+This is assuming that we define \begin{math}a \mod 0 \equiv 0\end{math} where a may be any integer. This answer depends on how we decide to define the modulus function. This is assuming we define the modulus to be the distance of any two integers from each other. In many modern programming languages and applications this operation is undefined. I see no other way to complete this proof without ignoring this limitation and using the more liberal definition.
+\item Inductive Hypothesis:
+\[P(a,b,c):(a^c - b^c)\bmod{a - b}\equiv 0\ ; \forall a,b,c \epsilon \mathbb{Z}_+\]
+\item Inductive Step:\\
+\begin{align*}
+P(a+1,b+1,c+1):((a+1)^{c+1} - (b+1)^{c+1})\bmod{((a + 1) - (b + 1))}&\equiv 0 ;\\
+\forall a,b,c \epsilon \mathbb{Z}_+\\
+((a+1)^{c+1} - (b+1)^{c+1})\bmod{((a + 1) - (b + 1))}&\equiv 0\\
+((a+1)(a+1)^{c} - (b+1)(b+1)^{c})\bmod{(a-b)}&\equiv 0\\
+((a+1)\sum\limits_{i = 0}^{c} {c \choose i} (a^i - 1) - (b+1)\sum\limits_{j = 0}^{c} {c \choose j} (b^j - 1))\bmod{(a-b)} &\equiv 0\\
+(\sum\limits_{i = 0}^{c} {c \choose i} a^{i+1} - \sum\limits_{j = 0}^{c} {c \choose j} b^{j+1} + \sum\limits_{i = 0}^{c} {c \choose i} a^i - \sum\limits_{j = 0}^{c} {c \choose j} b^j)\bmod{(a-b)} &\equiv 0\\
+(\sum\limits_{i = 0}^{c} {c \choose i} a^{i+1} - \sum\limits_{j = 0}^{c} {c \choose j} b^{j+1} + \sum\limits_{i = 1}^{c} {c \choose i} a^i - \sum\limits_{j = 1}^{c} {c \choose j} b^j + c - c)\bmod{(a-b)} &\equiv 0\\
+((\sum\limits_{i = 0}^{c} {c \choose i} a^{i+1} - \sum\limits_{j = 0}^{c} {c \choose j} b^{j+1})\bmod{(a-b)} +\\ (\sum\limits_{i = 1}^{c} {c \choose i} a^i - \sum\limits_{j = 1}^{c} {c \choose j} b^j)\bmod{(a-b)})\bmod{(a-b)} &\equiv 0\\
+(((a-b)(\sum\limits_{i = 0}^{c-1} {c \choose i} a^{i} - \sum\limits_{j = 0}^{c-1} {c \choose j} b^{j}))\bmod{(a-b)} +\\ ((a-b)(\sum\limits_{i = 1}^{c-1} {c \choose i} a^{i-1} - \sum\limits_{j = 1}^{c-1} {c \choose j} b^{j-1}))\bmod{(a-b)})\bmod{(a-b)} &\equiv 0\\
+\end{align*}
+\begin{align*}
+(0 + 0) &\equiv 0\\
+0 &\equiv 0 \\
+&\hspace{0.3cm}\qedsymbol
+\end{align*}
+\end{enumerate}
+Prove the following theorem using the definition of \begin{math}Ω(f (n))\end{math} and \begin{math}O(f (n))\end{math} , or else the limit test.
 \end{document}
