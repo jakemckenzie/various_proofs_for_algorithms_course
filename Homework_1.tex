@@ -139,7 +139,25 @@ Use the fact that for any \begin{math} n  \geq 1\end{math} by the Cauchy-Sqwarz 
 Producing a desired result of:
 \[\ln{n} \leq \sqrt{n + \frac{1}{n} - 2}\]
 Using the result of prior limit test and immediate results above (since \begin{math}d \geq 2\end{math}), we may say that:
-\[\ln{n} < \sqrt[2d]{n} < \sqrt{n + \frac{1}{n} - 2} < \sqrt[d]{n} \leq \sqrt{n}\]
+\[\ln{n} < \sqrt[2d]{n} < \sqrt[d]{n} \leq \sqrt{n + \frac{1}{n} - 2} < \sqrt{n}\]
 Thus:
 \[\lim_{n\to\infty} \frac{(\ln{n})^d}{\sqrt{n}} \rightarrow 0\]
+\section{2.1 Understand}
+Place these functions in order from slowest asymptotic growth to fastest asymptotic growth. You will want to simplify them algebraically before comparing them. Give a short justification (a proof is not necessary) of how you came to this ordering.\\\\\
+According to Donald Knuth, in Concrete Mathematics page 426 and 427, hierarchy and asymptotics of functions was introduced by Paul du Bois-Reymond in 1871 with the following definition:\\\\ 
+\[f(n) < g(n) \Longleftrightarrow \lim_{n\to\infty} \frac{f(n)}{g(n)} = 0\]
+Knuth continues on to give a what he calls,"asymptotic pecking order"(where \begin{math}0 < \epsilon < 1 < c\end{math}) which I used to solve this problem:
+\[1 < \log{\log{n}} < \log{n} < n^{\epsilon} < n^c < n^{log{n}} < c^n < n^n < c^{c^{n}}\]
+Using this pecking order, I made educated guesses as to which functions grew slower than others, then used Mathematica to check these guesses.
+\begin{enumerate}
+\item \begin{math}f_7(n) = \log{\log{n-1}}\end{math}
+\item \begin{math}f_6(n) = \log{n-1}\end{math}
+\item \begin{math}f_5(n) = \log{n^n}\end{math}
+\item \begin{math}f_3(n) = 4^{\log{n}}\end{math}
+\item \begin{math}f_2(n) = (\frac{n}{\log{n}})^3\end{math}
+\item \begin{math}f_0(n) = n^3 + n^2 + n + 1\end{math}
+\item \begin{math}f_8(n) = 100^{\sqrt{n}}\end{math}
+\item \begin{math}f_4(n) = 9^{\frac{n}{2}}\end{math}
+\item \begin{math}f_1(n) = 3^{2n}\end{math}
+\end{enumerate}
 \end{document}
