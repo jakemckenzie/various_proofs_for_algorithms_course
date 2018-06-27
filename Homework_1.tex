@@ -139,7 +139,7 @@ Use the fact that for any \begin{math} n  \geq 1\end{math} by the Cauchy-Sqwarz 
 Producing a desired result of:
 \[\ln{n} \leq \sqrt{n + \frac{1}{n} - 2}\]
 Using the result of prior limit test and immediate results above (since \begin{math}d \geq 2\end{math}), we may say that:
-\[\ln{n} < \sqrt[2d]{n} < \sqrt[d]{n} \leq \sqrt{n + \frac{1}{n} - 2} < \sqrt{n}\]
+\[\ln{n} < \sqrt[2d]{n} < \sqrt{n + \frac{1}{n} - 2} < \sqrt{n}\]
 Thus:
 \[\lim_{n\to\infty} \frac{(\ln{n})^d}{\sqrt{n}} \rightarrow 0\]
 \section{2.1 Understand}
@@ -150,14 +150,38 @@ Knuth continues on to give a what he calls,"asymptotic pecking order"(where \beg
 \[1 < \log{\log{n}} < \log{n} < n^{\epsilon} < n^c < n^{log{n}} < c^n < n^n < c^{c^{n}}\]
 Using this pecking order, I made educated guesses as to which functions grew slower than others, then used Mathematica to check these guesses.
 \begin{enumerate}
-\item \begin{math}f_7(n) = \log{\log{n-1}}\end{math}
-\item \begin{math}f_6(n) = \log{n-1}\end{math}
-\item \begin{math}f_5(n) = \log{n^n}\end{math}
-\item \begin{math}f_3(n) = 4^{\log{n}}\end{math}
-\item \begin{math}f_2(n) = (\frac{n}{\log{n}})^3\end{math}
-\item \begin{math}f_0(n) = n^3 + n^2 + n + 1\end{math}
-\item \begin{math}f_8(n) = 100^{\sqrt{n}}\end{math}
-\item \begin{math}f_4(n) = 9^{\frac{n}{2}}\end{math}
-\item \begin{math}f_1(n) = 3^{2n}\end{math}
+\item \begin{math}f_7(n) = \log{\log{n-1}}\end{math}\\
+The above function is clearly smaller than the function below it. Applying a logarithm to another logarithm significantly slows down the asymptotic growth.
+\item \begin{math}f_6(n) = \log{n-1}\end{math}\\
+The above function is clearly smaller than the function below it once a simplification is appliwed to the below function. n dominates any logarithm.
+\item \begin{math}f_5(n) = \log{n^n} = n \log{n}\end{math}\\
+The degree of the polynomial above is smaller than that below.
+\item \begin{math}f_3(n) = 4^{\log{n}} = n^2 \end{math}\\
+The degree of the polynomial above is smaller than that below.
+\item \begin{math}f_2(n) = (\frac{n}{\log{n}})^3=n^3(\frac{1}{\log{n}})^3\end{math}\\
+The degree of the polynomial above is same as that below but the function above is has a division of logarithm which slows it down.
+\item \begin{math}f_0(n) = n^3 + n^2 + n + 1\end{math}\\
+No simplication of the function that I know of can be applied but by looking at Knuth's pecking order I can see that any function of the form \begin{math}c^n\end{math} will be greater than \begin{math}n^c\end{math}.
+\item \begin{math}f_8(n) = 100^{\sqrt{n}}\end{math}\\
+By consulting concrete mathematics, when you have two different exponetials you need to compare the powers of the function inside the power. Since \begin{math}\sqrt{n} < n\end{math} the function above grows slower than that below.
+\item \begin{math}f_4(n) = 9^{\frac{n}{2}} = 3^{n}\end{math}\\
+Since \begin{math}n < 2n\end{math} the function above grows slower than that below.
+\item \begin{math}f_1(n) = 3^{2n}\end{math}\\
+Since all other cases have been exhausted this function above should grow the fastest.\\\\
 \end{enumerate}
+With use of mathematica and the definition Knuth provided (\begin{math}f(n) < g(n) \Longleftrightarrow \lim_{n\to\infty} \frac{f(n)}{g(n)} = 0\end{math}), I obtained the following results, where the row corresponds the \begin{math}f_i(n)\end{math} and  the column corresponds to \begin{math}g_j(n)\end{math}:\\
+\[
+    \begin{bmatrix}
+        1 & 0 & \infty & \infty & 0 & \infty & \infty & \infty & 0\\
+        \infty & 1 & \infty & \infty & \infty & \infty & \infty & \infty & \infty\\
+        0 & 0 & 1 & \infty & 0 & \infty & \infty & \infty & 0\\
+        0 & 0 & 0 & 1 & 0 & \infty & \infty & \infty & 0\\
+        \infty & 0 & \infty & \infty & 1 & \infty & \infty & \infty & \infty\\
+        0 & 0 & 0 & 0 & 0 & 1 & \infty & \infty & 0\\
+        0 & 0 & 0 & 0 & 0 & 0 & 1 & \infty & 0\\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
+        \infty & 0 & \infty & \infty & 0 & \infty & \infty & \infty & 1
+    \end{bmatrix}
+\]
+The rows with the most zeros or likewise the column with the most infinities in them should match to the ordering of what I obtained, which we see that it does. In the workplace and in the future I will make heavy use of technology to reduce errors and introduce beck practices, so I felt like it was important to show this step.
 \end{document}
