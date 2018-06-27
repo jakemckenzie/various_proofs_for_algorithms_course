@@ -119,7 +119,7 @@ P(a+1,b+1,c+1):((a+1)^{c+1} - (b+1)^{c+1})\bmod{((a + 1) - (b + 1))}&\equiv 0 ;\
 (\sum\limits_{i = 0}^{c} {c \choose i} a^{i+1} - \sum\limits_{j = 0}^{c} {c \choose j} b^{j+1} + \sum\limits_{i = 0}^{c} {c \choose i} a^i - \sum\limits_{j = 0}^{c} {c \choose j} b^j)\bmod{(a-b)} &\equiv 0\\
 (\sum\limits_{i = 0}^{c} {c \choose i} a^{i+1} - \sum\limits_{j = 0}^{c} {c \choose j} b^{j+1} + \sum\limits_{i = 1}^{c} {c \choose i} a^i - \sum\limits_{j = 1}^{c} {c \choose j} b^j + c - c)\bmod{(a-b)} &\equiv 0\\
 ((\sum\limits_{i = 0}^{c} {c \choose i} a^{i+1} - \sum\limits_{j = 0}^{c} {c \choose j} b^{j+1})\bmod{(a-b)} +\\ (\sum\limits_{i = 1}^{c} {c \choose i} a^i - \sum\limits_{j = 1}^{c} {c \choose j} b^j)\bmod{(a-b)})\bmod{(a-b)} &\equiv 0\\
-(((\sum\limits_{i = 1}^{c} {c \choose i} a^{i} - \sum\limits_{j = 0}^{c} {c \choose j} b^{j}))\bmod{(a-b)} +\\ ((a-b)(\sum\limits_{i = 1}^{c-1} {c \choose i} a^{i-1} - \sum\limits_{j = 1}^{c-1} {c \choose j} b^{j-1}))\bmod{(a-b)})\bmod{(a-b)} &\equiv 0\\
+(((\sum\limits_{i = 1}^{c} {c \choose i} a^{i + 1} - \sum\limits_{j = 1}^{c} {c \choose j} b^{j + 1}) + (1 - 1)\bmod{(a-b)} +\\ ((\sum\limits_{i = 1}^{c} {c \choose i} a^{i} - \sum\limits_{j = 1}^{c} {c \choose j} b^{j}))\bmod{(a-b)})\bmod{(a-b)} &\equiv 0\\
 \end{align*}
 \begin{align*}
 (0 + 0) &\equiv 0\\
@@ -127,6 +127,7 @@ P(a+1,b+1,c+1):((a+1)^{c+1} - (b+1)^{c+1})\bmod{((a + 1) - (b + 1))}&\equiv 0 ;\
 &\hspace{0.3cm}\qedsymbol
 \end{align*}
 \end{enumerate}
+Some explanation is needed to explain how the summations on the last page are divisible by \begin{math} a - b\end{math}. Due to the binomial theorem, any series of the nature \begin{math} (a - b) + (a^2 - b^2) + (a^3 - b^3) + ...  \end{math} has within it an \begin{math} (a - b) \end{math}. So if the first term 1 is allowed to elapse from each term we can then say the summations are divisible.\\\\
 Prove the following theorem using the definition of \begin{math} \Omega (f (n))\end{math} and \begin{math}O(f (n))\end{math} , or else the limit test.\\\\
 \noindent \textbf{Theorem 4.} Let \begin{math}d \geq 2\end{math} be an integer. Then \begin{math}\sqrt[^d]{n} \epsilon \Omega (\sqrt[^{2d}]{n})\end{math} and \begin{math}(\ln {n}^d) \epsilon O(\sqrt{n})\end{math}\\\\
 \begin{align}
