@@ -110,14 +110,10 @@ Prove by induction that \begin{math}x^n - y^n\end{math} is divisible by \begin{m
 \[P(j):(a^j - b^j) = k(a - b); \forall a,b,j,k \epsilon \mathbb{Z}_+\]
 \item Inductive Step:\\
 \begin{align*}
-P(j+1):(a^(j+1) - b^(j+1)) &= k(a-b)\\
-a*a^(j) - b*b^j &= k(a-b)\\
-(a+b-b)*a^j - (b - a + a)*b^j + (a - b) - (a - b) &= k(a-b)\\
-(a+b)*(a^j-b^j) - b*a^{j-1}-a*b^{j-1}+ (a - b) - (a - b) &= k(a-b)\\
-(a+b)*(a^j-b^j) - a*b*(a^{j-1}-b^{j-1})+ (a - b) - (a - b) &= k(a-b)\\
-k(a - b) - a*b*(a^{j-1}-b^{j-1})+ (a - b) - (a - b) &= k(a-b)\\
-\end{align*}
-\begin{align*}
+P(j+1):(a^(j+1) - b^(j+1)) &= k(a-b); \forall a,b,j,k,g \epsilon \mathbb{Z}_+\\
+a^(j+1) - b^(j+1) + b*a^j - b*a^j &= k(a-b)\\
+a^j(a-b) + b(a^j-b^j) &= k(a-b)\\
+a^j(a-b) + g(a - b) &= k(a-b)\\
 &\hspace{0.3cm}\qedsymbol
 \end{align*}
 \end{enumerate}
