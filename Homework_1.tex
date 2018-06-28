@@ -72,7 +72,7 @@ P(k+1):\sum\limits_{i = 1}^{k+1} i^5 = \big(\frac{(k+1)(k + 1 + 1)}{2}\big)^2\fr
 \bigg(\frac{1}{12}\bigg)(2k^6+18k^5+65k^4+120k^3+119k^2+60k+12))&=\\
 \bigg(\frac{1}{12}\bigg)(k^4+6k^3+13k^2+12k+4)(2k^2+6k+3)&=\\
 \bigg(\frac{1}{12}\bigg)(k^2+3k+2)^2(2k^2+6k+3)&=\\
-\big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+5k+2}{3}&=\\
+\big(\frac{(k+1)(k + 2)}{2}\big)^2\frac{2k^2+6k+3}{3}&=\\
 \intertext{The prior three steps were obtained by fully expanding the LHS to make it match the fully expanded polynomial four lines above. By the fundamental theorem of algebra, I knew I obtained the desired results. Those steps were included in reverse on the LHS for the readers benefit of readability.}
 &\hspace{0.3cm}\qedsymbol
 \end{align*}
@@ -128,11 +128,11 @@ Prove the following theorem using the definition of \begin{math} \Omega (f (n))\
 \end{align}\\
 Use the fact that for any \begin{math} n  \geq 1\end{math} by the Cauchy-Sqwarz inequality\
 \[(\ln{n})^d = (\int_{1}^{n} \frac{dx}{x})^d \leq (\int_{1}^{n} dx \int_{1}^{n} \frac{dx}{x^2})^{\frac{d}{2}} = ((n-1)(1-\frac{1}{n}))^{\frac{d}{2}} = (n + \frac{1}{n} - 2)^{\frac{d}{2}}\]\\
-Producing a desired result of:
-\[(\ln{n})^d \leq (n + \frac{1}{n} - 2)^{\frac{d}{2}}\]
-Using the result of prior limit test and immediate results above (since \begin{math}d \geq 2\end{math}), we cannot immediately state that 
-Thus:
-\[\lim_{n\to\infty} \frac{(\ln{n})^d}{\sqrt{n}} \rightarrow 0\]
+Producing an important result for intuition when considering the smallest value of d:
+\[(\ln{n})^d \leq n \leq (n + \frac{1}{n} - 2)^{\frac{d}{2}}\]
+Using the result of prior limit test and immediate results above (since \begin{math}d \geq 2\end{math}), we cannot immediately state that the limit approaches 0.
+\[\lim_{n\to\infty} \frac{(\ln{n})^d}{\sqrt{n}} =\lim_{n\to\infty} \frac{(2\ln{\sqrt{n}})^d}{\sqrt{n}} \rightarrow 0\]
+From the result above and just prior, I can say with some certainty that no matter how large d is, it is a finite value. From consulting concrete mathematics, pages 426 and 427, that applying a logarithm to a sqrt will grow far slower than any square root, if it's power is finite. 
 \section{2.1 Understand}
 Place these functions in order from slowest asymptotic growth to fastest asymptotic growth. You will want to simplify them algebraically before comparing them. Give a short justification (a proof is not necessary) of how you came to this ordering.\\\\\
 According to Donald Knuth, in Concrete Mathematics page 426 and 427, hierarchy and asymptotics of functions was introduced by Paul du Bois-Reymond in 1871 with the following definition:\\\\ 
