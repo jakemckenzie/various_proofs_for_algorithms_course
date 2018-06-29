@@ -43,7 +43,7 @@ P(k+1):\sum\limits_{i = 1}^{k+1} i &= \frac{(k + 1)(k+2)}{2} \forall k \epsilon 
 \end{align*}
 \end{enumerate}
 \noindent Prove Gauss’s sum using induction on \begin{math}n\end{math}. Make sure to include a base case for \begin{math} n = 1\end{math} and an inductive hypothesis and an inductive step for \begin{math}n > 1\end{math}.\\\\
-\noindent Theorem 2 is indeed true.
+\noindent Theorem 2 is indeed true.\\\\
 \noindent \textbf{Theorem 3.}
 \begin{math}P(n):\sum\limits_{i = 1}^{n} i^5 = \big(\frac{n(n + 1)}{2}\big)^2\frac{2n^2+2n-1}{3} \forall n \epsilon \mathbb{Z}_+  \end{math}
 \\\\For this proof I used the fundamental theorem of algebra to help assist me. The last three steps of the inductive step to ensure \begin{math}P(k+1)\end{math} step I obtained those steps by expanding the right hand side and ensuring that each polynomial on the left hand side matched the right hand side. Those were included on the left hand side in reverse to ensure continuity and readability.\\
@@ -131,13 +131,15 @@ Prove the following theorem using the definition of \begin{math} \Omega (f (n))\
 &= \lim_{n\to\infty} n^{\frac{1}{2d}} \rightarrow \infty
 \end{align}\\
 Use the fact that for any \begin{math} n  \geq 1\end{math} by the Cauchy-Sqwarz inequality\
-\[(\ln{n})^d = (\int_{1}^{n} \frac{dx}{x})^d \leq (\int_{1}^{n} dx \int_{1}^{n} \frac{dx}{x^2})^{\frac{d}{2}} = ((n-1)(1-\frac{1}{n}))^{\frac{d}{2}} = (n + \frac{1}{n} - 2)^{\frac{d}{2}}\]\\
+\[(\ln{n})^d = (\int_{1}^{n} \frac{dx}{x})^d \leq (\int_{1}^{n} dx \int_{1}^{n} \frac{dx}{x^2})^{\frac{d}{2}} = ((n-1)(1-\frac{1}{n}))^{\frac{d}{2}} = (n + \frac{1}{n} - 2)^{\frac{d}{2}} = (n^2-n+1)^{\frac{d}{2}}\]\\
+Notice that, with by substituting in the smallest value of d, we obtain:
+\[(n + \frac{1}{n} - 2)^{\frac{d}{2}} = (n^2-n+1)^{\frac{d}{2}} \geq (n^2-n+1) > n^2\]\\
 Producing an important result for intuition when considering the smallest value of d:
-\[(\ln{n})^d \leq (n + \frac{1}{n} - 2)^{\frac{d}{2}}\]
+\[(\ln{n})^d < n^d < (n + \frac{1}{n} - 2)^{\frac{d}{2}}\]
 Using the result of prior limit test and immediate results above (since \begin{math}d \geq 2\end{math}), we cannot immediately state that the limit approaches 0. Using Cauchy-Sqwarz did not produce a tight enough bound to say either way, but it does give us a ballpark estimate of the neighborhood of our possible bound. By noticing a fact of the rules of logs we can find that tighter bound we were looking for.
 \[\lim_{n\to\infty} \frac{(\ln{n})^d}{\sqrt{n}} =\lim_{n\to\infty} \frac{(2\ln{\sqrt{n}})^d}{\sqrt{n}} \rightarrow 0\]
 From the result above and just prior, I can say with some certainty that no matter how large d is, it is a finite value. From consulting Concrete Mathematics by Donald Knuth, pages 426 and 427, that applying a logarithm to a sqrt will grow far slower than any polynomial on n (including square roots), when it's power is some finite quantity greater than 0.\\\\
-We can now say that \begin{math}\sqrt[^d]{n} \epsilon \Omega (\sqrt[^{2d}]{n})\end{math} and \begin{math}(\ln {n}^d) \epsilon O(\sqrt{n})\end{math} and that Theorem 4 is true.
+We can now say that \begin{math}\sqrt[^d]{n} \epsilon \Omega (\sqrt[^{2d}]{n})\end{math} and \begin{math}(\ln {n}^d) \epsilon O(\sqrt{n})\end{math} and that theorem 4 is true.
 \section{2.1 Understand}
 Place these functions in order from slowest asymptotic growth to fastest asymptotic growth. You will want to simplify them algebraically before comparing them. Give a short justification (a proof is not necessary) of how you came to this ordering.\\\\\
 According to Donald Knuth, in Concrete Mathematics page 426 and 427, hierarchy and asymptotics of functions was introduced by Paul du Bois-Reymond in 1871 with the following definition:\\\\ 
