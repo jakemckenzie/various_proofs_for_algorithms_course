@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \begin{document}
 \title{TCSS 343 - Assignment 1}
+\author{Jake McKenzie}
 \maketitle
 
 
@@ -132,7 +133,7 @@ Prove the following theorem using the definition of \begin{math} \Omega (f (n))\
 Use the fact that for any \begin{math} n  \geq 1\end{math} by the Cauchy-Sqwarz inequality\
 \[(\ln{n})^d = (\int_{1}^{n} \frac{dx}{x})^d \leq (\int_{1}^{n} dx \int_{1}^{n} \frac{dx}{x^2})^{\frac{d}{2}} = ((n-1)(1-\frac{1}{n}))^{\frac{d}{2}} = (n + \frac{1}{n} - 2)^{\frac{d}{2}}\]\\
 Producing an important result for intuition when considering the smallest value of d:
-\[(\ln{n})^d \leq n \leq (n + \frac{1}{n} - 2)^{\frac{d}{2}}\]
+\[(\ln{n})^d \leq (n + \frac{1}{n} - 2)^{\frac{d}{2}}\]
 Using the result of prior limit test and immediate results above (since \begin{math}d \geq 2\end{math}), we cannot immediately state that the limit approaches 0. Using Cauchy-Sqwarz did not produce a tight enough bound to say either way, but it does give us a ballpark estimate of the neighborhood of our possible bound. By noticing a fact of the rules of logs we can find that tighter bound we were looking for.
 \[\lim_{n\to\infty} \frac{(\ln{n})^d}{\sqrt{n}} =\lim_{n\to\infty} \frac{(2\ln{\sqrt{n}})^d}{\sqrt{n}} \rightarrow 0\]
 From the result above and just prior, I can say with some certainty that no matter how large d is, it is a finite value. From consulting Concrete Mathematics by Donald Knuth, pages 426 and 427, that applying a logarithm to a sqrt will grow far slower than any polynomial on n (including square roots), when it's power is some finite quantity greater than 0.\\\\
