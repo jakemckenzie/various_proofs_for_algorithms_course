@@ -56,7 +56,7 @@ P(3):6 &= \sqrt{1+5(7)}\\
 P(k):k &= \sqrt{1+(k-1)(k+1)}\\
 P(k + 1):k + 1 &= \sqrt{1+k(k+2)}\\
 \end{align*}\\
-Dealing with radicals on their own with the given expression untenable, but this recurrance relation drastically reduces the complexity dramatically. Now we will introduce the inductive hypothesis.\\
+Dealing with the radical on its own with the given expression up top is untenable, but this recurrance relation drastically reduces the complexity dramatically. Now we will introduce the inductive hypothesis.\\
 \begin{align*}
 k + 1 &= \sqrt{1+\sqrt{1+(k-1)(k+1)}(k+2)}\\
 k + 1 &= \sqrt{1+\sqrt{1+k^2-1}(k+2)}\\
@@ -67,4 +67,5 @@ k + 1 &= \sqrt{(k+1)^2}\\
 k + 1 &= k+1\\
 &\hspace{0.3cm}\qedsymbol
 \end{align*}
+\\\\Because the infinite radical is the continious application of this recursive definition, we can say that by induction the original expression is indeed equal to exactly 3. Notions of convergence are important when dealing with infinite expressions but I think that both the numerical analysis and recursive proof dispel problems, in the interest of time.
 \end{document}
