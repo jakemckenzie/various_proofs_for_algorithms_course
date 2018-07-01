@@ -13,7 +13,7 @@
 \caption{Find Max integer in an Array with simple recursion}
 \label{array-sum}
 \begin{algorithmic}[1]
-\Procedure{Find Max}{$A, index$}
+\Procedure{Find Max}{$A,B$}
     \If{($index == A.Length - 1$)}
         \State return A[A.Length - 1]
     \EndIf
@@ -21,7 +21,47 @@
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
-\item [(6 points) 2.] Using the same reduction as part 1 now state a recurrence $T(n)$ that expresses the worst case run time of the recursive algorithm. Find a similar recurrence in your notes and state the tight bound on $T(n)$.
-\item [(9 points) 3.] Below is a self-reduction for the \texttt{MAX} problem. State a recursive algorithm using pseudocode for finding the maximum element based on this self-reduction.
+\item [(6 points) 2.] Using the same reduction as part 1 now state a recurrence $T(n)$ that expresses the worst case run time of the recursive algorithm. Find a similar recurrence in your notes and state the tight bound on $T(n)$.\\\\\
+Line 3 makes $1$ amount of operations while line 5 makes $T(n-1)$, this is because there are $n-1$ amount of comparisons to check for the max in the recurrence for when this list is greater than 1. **Note: Consistency of whether the constant amount of operations is writen as $1$ or $O(1)$ are inconsistent so I went with the notation I've seen the most used often.
+\[
+  T(n) =
+    \begin{cases}
+        1 & \text{if $n = 1$} \\
+        T(n-1) + 1 & \text{if $n > 1$}
+    \end{cases}
+\]
+Claim: $\forall n > 0$, the running time of \textit{Find Max} $\epsilon O(n)$. We consder the recurrance relation above.
+\begin{enumerate}
+\item[1.] Base Case:\\
+$$n = 1; T(1) = 1$$
+\item[2.] Inductive Hypothesis:\\
+\[
+  T(k) =
+    \begin{cases}
+        1 & \text{if $k = 1$} \\
+        T(k-1) + 1 & \text{if $k > 1$}
+    \end{cases}
+\]
+\\Assume for an arbitrary $k, T(k) \leq k$
+\item[3.] Inductive Step:
+\begin{gather*}
+\text{if $k + 1 > 1$}\\
+T(k + 1) = T(k) + 1\\
+T(k + 1) = k + 1 + 1\\  
+T(k + 1) = k + 2\\
+T(k + 1) \epsilon O(k)
+\end{gather*}
+\end{enumerate}
+\item [(9 points) 3.] Below is a self-reduction for the \texttt{MAX} problem. State a recursive algorithm using pseudocode for finding the maximum element based on this self-reduction.\\\\\
+\[
+M(A[a\dots b]) = \left\{
+\begin{array}{cl}
+-\infty & \textrm{ if } a > b\\
+A[a] & \textrm{ if } a = b\\
+\max(M(A[a\dots t_1]), \max(M(A[t_1+1\dots t_2]), M(A[t_2+1\dots b]))) & \textrm{ if } a < b
+\end{array}
+\right.
+\]
+
 \end{enumerate}
 \end{document}
