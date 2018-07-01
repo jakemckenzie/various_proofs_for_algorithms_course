@@ -1,0 +1,27 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+\title{TCSS 343 - Assignment 1}
+\author{Jake McKenzie}
+\maketitle
+\begin{enumerate}
+\item [(3 points) 1.] Below is a self-reduction for the \texttt{MAX} problem. State a recursive algorithm using pseudocode for finding the maximum element based on this self-reduction.\\\\
+\begin{algorithm}
+\caption{Find Max integer in an Array with simple recursion}
+\label{array-sum}
+\begin{algorithmic}[1]
+\Procedure{Find Max}{$A, index$}
+    \If{($index == A.Length - 1$)}
+        \State return A[A.Length - 1]
+    \EndIf
+    \State return Find Max(A[index], Find Max(A[index + 1]))
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\item [(6 points) 2.] Using the same reduction as part 1 now state a recurrence $T(n)$ that expresses the worst case run time of the recursive algorithm. Find a similar recurrence in your notes and state the tight bound on $T(n)$.
+\item [(9 points) 3.] Below is a self-reduction for the \texttt{MAX} problem. State a recursive algorithm using pseudocode for finding the maximum element based on this self-reduction.
+\end{enumerate}
+\end{document}
