@@ -1,28 +1,35 @@
-\documentclass[12pt]{article}
+\documentclass[paper=a4,fontsize=11pt]{article}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage[protrusion=true,expansion=true]{microtype}	
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage[margin=1.5in]{geometry}
+
 
 \begin{document}
 \title{TCSS 343 - Assignment 1}
 \author{Jake McKenzie}
 \maketitle
 \begin{enumerate}
-\item [(3 points) 1.] Below is a self-reduction for the \texttt{MAX} problem. State a recursive algorithm using pseudocode for finding the maximum element based on this self-reduction.\\\\
+\item [(3 points) 1.] Below is a self-reduction for the \texttt{MAX} problem. State a recursive algorithm using pseudocode for finding the maximum element based on this self-reduction.\\
 \begin{algorithm}
 \caption{Find Max integer in an Array with simple recursion}
 \label{array-sum}
 \begin{algorithmic}[1]
-\Procedure{Find Max}{$A,B$}
-    \If{($index == A.Length - 1$)}
-        \State return A[A.Length - 1]
+\Procedure{Find Max}{$A,a$}
+    \If{($a == b$)}
+        \State return A[a]
+    \ElsIf{(a $<$ b)}
+        \State Max(A[a],Find Max(a + 1))
     \EndIf
-    \State return Find Max(A[index], Find Max(A[index + 1]))
+\EndProcedure
+\Procedure{Max}{$a,b$}
+    return (a $<$ b) ? b : a
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 \item [(6 points) 2.] Using the same reduction as part 1 now state a recurrence $T(n)$ that expresses the worst case run time of the recursive algorithm. Find a similar recurrence in your notes and state the tight bound on $T(n)$.\\\\\
-Line 3 makes $1$ amount of operations while line 5 makes $T(n-1)$, this is because there are $n-1$ amount of comparisons to check for the max in the recurrence for when this list is greater than 1. **Note: Consistency of whether the constant amount of operations is writen as $1$ or $O(1)$ are inconsistent so I went with the notation I've seen the most used often.
+Line 3 makes $1$ amount of operations while line 5 makes $T(n-1)$, this is because there are $n-1$ amount of comparisons to check for the max in the recurrence for when this list is greater than 1. **Note**: Consistency of whether the constant amount of operations is writen as $1$ or $O(1)$ are inconsistent so I went with the notation I've seen the most used often.
 \[
   T(n) =
     \begin{cases}
