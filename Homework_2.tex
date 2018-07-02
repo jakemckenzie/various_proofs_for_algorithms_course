@@ -4,7 +4,8 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage[margin=1.5in]{geometry}
-
+\setlength{\textfloatsep}{0.1cm}
+\setlength{\floatsep}{0.1cm}
 
 \begin{document}
 \title{TCSS 343 - Assignment 1}
@@ -16,15 +17,15 @@
 \caption{Find Max integer in an Array with simple recursion}
 \label{array-sum}
 \begin{algorithmic}[1]
-\Procedure{Find Max}{$A,a$}
+\Procedure{Find Max}{$A$}
     \If{($a == b$)}
         \State return A[a]
-    \ElsIf{(a $<$ b)}
-        \State Max(A[a],Find Max(a + 1))
+    \ElsIf{($a < b$)}
+        \State return Max(A[a],Find Max(A[a + 1]))
     \EndIf
 \EndProcedure
 \Procedure{Max}{$a,b$}
-    return (a $<$ b) ? b : a
+    return ($a < b$) ? b : a
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
@@ -69,6 +70,24 @@ A[a] & \textrm{ if } a = b\\
 \end{array}
 \right.
 \]
-
+\begin{algorithm}
+\caption{Find Max integer in an Array with 3-Way Split}
+\label{array-sum}
+\begin{algorithmic}[1]
+\Procedure{Find Max}{$A,a,t_1,t_2$}
+    \If{($a > b$)}
+        \State return 0x7FFFFFFF
+    \ElsIf{($a == b$)}
+        \State return A[a]
+    \ElsIf{($a < b$)}
+        \State return Max(FindMax(A,a,$t_1$,$t_2$), Max(FindMax(A, a, $t_1$+1,$t_2$), FindMax(A, a, $t_1$,$t_2$+1]))
+    \EndIf
+\EndProcedure
+\Procedure{Max}{$a,b$}
+    return (a $<$ b) ? b : a
+\EndProcedure
+For what it is worth, I don't think this algorithm will find the max element if it is contained within the first third of the array(we never iterate a), but it is the self-reduction stated.
+\end{algorithmic}
+\end{algorithm}
 \end{enumerate}
 \end{document}
