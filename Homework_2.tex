@@ -156,7 +156,7 @@ T(n) &= \epsilon O(n)\\
     \If{($n \leq 0$)}
         \State return 0
     \Else
-        \State return FindSum(A, n-2) + FindSum(A, (n == n) ? n - 1 : n - 2) + A[n - 1]
+        \State return FindSum(A, n - 2) + A[n - 1] + A[n - 2] 
     \EndIf
 \EndProcedure
 \end{algorithmic}
