@@ -298,11 +298,19 @@ T(1) &= 1\\
 Again no domain or value was given for $C$ but assuming that $C=1$ we can safely assume that the base case was satisfied.\\
 \textbf{Inductive Hypothesis}\\
 \begin{align*}
-T(n) &=T(\left\lfloor\frac{n}{2}\right\rfloor) + T(\left\lfloor\frac{n}{4}\right\rfloor) + 4n\\
+T(n) &=2^{\nabla}T(1) + 0 + 4n\\
 g(n) &= -2.27056n^{0.694242}+3.27056n\forall{n>1}\\
+g(n) &\epsilon \Theta(n)\\
 \end{align*}\\
 \textbf{Inductive Step}\\
-My reasoning for this will be by the following. If we look at our tree in the adjacent pdf, the leaves do not terminate in a uniform manner. This makes the problem illsuited for induction, but alas we will try.
+If we look at our tree in the adjacent pdf, the leaves do not terminate in a uniform manner. This makes the problem illsuited for induction, but alas we will try.\\
+\begin{align*}
+T(n + 1) &=2^{\nabla + 1}T(0) + 0 + 4(n + 1)\\
+T(n + 1) &=2(2^{\log{n}}T(1)) + 4n + 4\\
+T(n + 1) &=2(n*1) + 4n + 4\\
+T(n + 1) &=6n + 4\\
+T(n+1) &\epsilon \Theta(n)\
+\end{align*}\\
 \end{enumerate}
 \end{enumerate}
 \end{document}
