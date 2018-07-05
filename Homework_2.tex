@@ -243,10 +243,38 @@ T(\left\lfloor\frac{n}{2}\right\rfloor) + T(\left\lfloor\frac{n}{4}\right\rfloor
 \]
 \\Before I present my recursion tree, let me for the sake of argument, state my assumptions: $2T(\frac{n}{4})+4n \leq T(\left\lfloor\frac{n}{2}\right\rfloor) + T(\left\lfloor\frac{n}{4}\right\rfloor) + 4n \leq 2T(\frac{n}{2})+4n$ since it is safe to assume that $T(n/4) \ll T(n/2)$. By the master method I expect that $g(n)$ should be sandwhiched in the following way $O(n) \ll g(n) \ll O(n\log{n})$\\
 \begin{enumerate}
-\item [(5 points) 1.] Draw the first six levels of the recursion tree by drawing all recursive calls of the same size on the same level. Make sure on each level you indicate the size of the recursive call and the number of recursive calls.
-
-\item [(5 points) 2.] Express the cost of all levels of the recursion tree as a sum over the cost of each level of the recursion tree.
-
+\item [(5 points) 1.] Draw the first six levels of the recursion tree by drawing all recursive calls of the same size on the same level. Make sure on each level you indicate the size of the recursive call and the number of recursive calls. \\\\
+The recursion tree is in an attached document, labeled "recursiontree.pdf". I did not include that in this document because I could not get the LaTeX to format properly.\\\\
+I'll state the levels here as joining them to the image is a lot of work.\\
+Level 0: $4n$\\
+Level 1: $4(\frac{n}{2^1}+\frac{n}{2^2})=3n$\\
+Level 2: $4(\frac{n}{2^2}+\frac{n}{2^3}+\frac{n}{2^3}+\frac{n}{2^4})=\frac{9n}{4}$\\
+For now on I will just state the sum result. The expressions became quite long and tedious.\\
+Level 3: $\frac{27n}{16}$\\
+Level 4: $\frac{81n}{64}$\\
+Level 5: $\frac{243n}{256}$\\
+Level 6: $\frac{729n}{1024}$\\
+I thought I was doing something wrong but asside from algebra errors, I did follow pages 99-105 of Introduction to Algorithms (CLRS) to obtain this solution.\\\\
+Apparently a property of each level being the same is only true if you have a single type of recurrence in an equation. If this had been for instance just $T(\frac{n}{4}) + n$ then you would have had equal costing levels at each recursion. You do not with this example.\\\\
+According to the master method, I should expect the number of leaves ($L$) to be somewhere sandwhiched between $\sqrt{n} < L < n$ where $n$ is the number of nodes.\\
+\item [(5 points) 2.] Express the cost of all levels of the recursion tree as a sum over the cost of each level of the recursion tree.\\\\
+Looking back at the last page, there's clearly a linear recurrance of that. Solving for a linear recurrence can be quite difficult, so what is it that I expect the recurrance to be? I expect the recurrence to be some expression containing $\frac{1}{2}+\frac{1}{4}=\frac{2}{4}+\frac{1}{4}=\frac{3}{4}$. That appears to indeed be the case. To solve for the overall cost I will make the assumption that this tree is geometric and follow the examples from CLRS, knowing what I know from the above linear recurrence.\\
+\begin{align*}
+T(n) &= 4n + (\frac{3}{4})^1n+(\frac{3}{4})^2n+(\frac{3}{4})^3n+(\frac{3}{4})^4n+\dots\\
+T(n) &= 3n + (\frac{3}{4})^0n + (\frac{3}{4})^1n+(\frac{3}{4})^2n+(\frac{3}{4})^3n+(\frac{3}{4})^4n+\dots\\
+T(n) &= 3n + \sum_{\psi=0}^{\infty}{n(\frac{3}{4})^\psi}\\
+T(n) &= 3n + \frac{n}{1-\frac{3}{4}}\\
+T(n) &= 3n + 4n\\
+T(n) &= 7n\\
+T(n) &\epsilon O(n)
+\end{align*}
+This is a good upper bound but to find the exact bound I found the Akra-Bazzi method to be much more powerful, being as it seems well suited for such problems.\\\\
+First we need to solve the equation $(\frac{1}{2})^p+(\frac{1}{4})^p=1$ obtaining $p=0.6942419136306174$.\\
+\begin{align*}
+T(n) &\epsilon \Theta(x^p(1+\int_{1}^{n}{u^{1-p}du}))\\
+T(n) &\epsilon \Theta(-2.27056n^{0.694242}+3.27056n)\\
+T(n) &\epsilon \Theta(n)
+\end{align*}
 \item [(5 points) 3.] Give a function $g (n)$ and show it is an upper bound on the sum.
 
 \item [(5 points) 4.] State and prove by induction a theorem showing $T (n) \in O(g(n))$.
