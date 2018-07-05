@@ -259,6 +259,7 @@ Apparently a property of each level being the same is only true if you have a si
 According to the master method, I should expect the number of leaves ($L$) to be somewhere sandwhiched between $\sqrt{n} < L < n$ where $n$ is the number of nodes.\\
 \item [(5 points) 2.] Express the cost of all levels of the recursion tree as a sum over the cost of each level of the recursion tree.\\\\
 Looking back at the last page, there's clearly a linear recurrance of that. Solving for a linear recurrence can be quite difficult, so what is it that I expect the recurrance to be? I expect the recurrence to be some expression containing $\frac{1}{2}+\frac{1}{4}=\frac{2}{4}+\frac{1}{4}=\frac{3}{4}$. That appears to indeed be the case. To solve for the overall cost I will make the assumption that this tree is geometric and follow the examples from CLRS, knowing what I know from the above linear recurrence.\\
+\item [(5 points) 3.] Give a function $g (n)$ and show it is an upper bound on the sum.
 \begin{align*}
 T(n) &= 4n + (\frac{3}{4})^1n+(\frac{3}{4})^2n+(\frac{3}{4})^3n+(\frac{3}{4})^4n+\dots\\
 T(n) &= 3n + (\frac{3}{4})^0n + (\frac{3}{4})^1n+(\frac{3}{4})^2n+(\frac{3}{4})^3n+(\frac{3}{4})^4n+\dots\\
@@ -274,13 +275,34 @@ First we need to solve the equation $(\frac{1}{2})^p+(\frac{1}{4})^p=1$ obtainin
 T(n) &\epsilon \Theta(x^p(1+\int_{1}^{n}{u^{1-p}du}))\\
 T(n) &\epsilon \Theta(-2.27056n^{0.694242}+3.27056n)\\
 T(n) &\epsilon \Theta(n)
-\end{align*}
-\item [(5 points) 3.] Give a function $g (n)$ and show it is an upper bound on the sum.
-
+\end{align*}\\
+Not only is the other term lower in order but it is negative! We can safely ignore it. Akra-Bazzi seems powerful in that it can be shown that all recurrences can be shown to default to the non-recurrance term if $p$ is greater than the power of that polynomial term quickly simplifying the work needed to be done to find the asymptotic boundaries. I learned of this method from watching Lecture 14 in MIT 6.02J Mathematics for Computer Science Fall of 2018 timestamp $1:02:45$\\
 \item [(5 points) 4.] State and prove by induction a theorem showing $T (n) \in O(g(n))$.
-
-\item [(5 points) 5.] State and prove by induction a theorem showing $T (n) \in \Omega(g(n))$.
-
+\item [(5 points) 5.] State and prove by induction a theorem showing $T (n) \in \Omega(g(n))$.\\\\
+Let us assume that $T(n) \epsilon \Theta(n)$ where $g(n)=-2.27056n^{0.694242}+3.27056n$.\\\\
+\[
+T(n) = \left\{
+\begin{array}{cl}
+c & \textrm{ if } n = 1\\
+T(\left\lfloor\frac{n}{2}\right\rfloor) + T(\left\lfloor\frac{n}{4}\right\rfloor) + 4n & \textrm{ if } n > 1
+\end{array}
+\right.
+\]
+\textbf{Base Case}\\
+\begin{align*}
+T(1) &= C\\
+T(1) &= -2.27056(1)^{0.694242}+3.27056(1)\\
+T(1) &= -2.27056+3.27056\\
+T(1) &= 1\\
+\end{align*}\\
+Again no domain or value was given for $C$ but assuming that $C=1$ we can safely assume that the base case was satisfied.\\
+\textbf{Inductive Hypothesis}\\
+\begin{align*}
+T(n) &=T(\left\lfloor\frac{n}{2}\right\rfloor) + T(\left\lfloor\frac{n}{4}\right\rfloor) + 4n\\
+T(n) &= -2.27056n^{0.694242}+3.27056n\forall{n>1}\\
+T(n) &\epsilon \Theta(n)\\
+\end{align*}\\
+\textbf{Inductive Step}\\
 \end{enumerate}
 \end{enumerate}
 \end{document}
