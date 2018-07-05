@@ -217,15 +217,10 @@ g(n) &\epsilon \Theta(\sqrt{n})\\
 \textbf{Inductive Step}
 \begin{align*}
 T(n + 1) &= 2^{\nabla+1}T(0) + 16\\
-T(n + 1) &= 2(2^{\nabla}T(1)) + 16\\
-T(n + 1) &= 2(16\sqrt{n} + \sqrt{n - 1} + 1) + 16\\
-T(n + 1) &= 32\sqrt{n}+2\sqrt{n-1}+18\\
-\lim_{n\to\infty}{\frac{32\sqrt{n}+2\sqrt{n-1}+18}{\sqrt{n}}} &\to\\
-\to\lim_{n\to\infty}34 + 18\sqrt{\frac{1}{n}}-\frac{1}{n}-\frac{1}{4n^2}-\frac{1}{8n^3}&-\frac{1}{64n^4}-\frac{1}{128n^5}+O((\frac{1}{n})^{6})\\
-&\to 34\\
+T(n + 1) &= 2(16\sqrt{n}) + 16\\
+T(n + 1) &= 32\sqrt{n} + 16\\
+\lim_{n\to\infty}{\frac{32\sqrt{n} + 16}{\sqrt{n}}} &\to32\\
 &\therefore g(n)\epsilon \Theta(\sqrt{n})\\
-\lim_{n\to\infty}{\frac{32\sqrt{n}+2\sqrt{n-1}+18}{\sqrt{n}}} &\to\lim_{n\to\infty}32 + 2\sqrt{\frac{n-1}{n}} +0\\
-\to\lim_{n\to\infty}32+2\sqrt{\frac{1-\frac{1}{n}}{1}}&\to34\\
 \end{align*}\\
 The series above was generated using mathematica and is an example of a puiseaux series. I don't like dealing with roots and I especially don't like taking limits of them so when I can I use mathematica to perform tranformations of them to a more usuable form. I believe by the nature of asymptotics I've answered the next two questions. This isn't how it was done in class, you proved both seperately but I look my notes and they're confusing.\\\\
 I included simplifying of the root in fear of losing points due to not showing my work, but I used the series originally to solve the problem.\\  
@@ -311,6 +306,7 @@ T(n + 1) &=2(n*1) + 4n + 4\\
 T(n + 1) &=6n + 4\\
 T(n+1) &\epsilon \Theta(n)\
 \end{align*}\\
+\\To assess my work let's recap. I've shown now that $3.27056n\leq g(n)\leq 6n<7n$. Clearly it is a function of $n$ and grows linearly. From Akra-Bazzi I know that if $p < $ power of the no recurrence term, which in this case is true, $0.6942419136306174 < 1$ then we know that the $n$ term will dominate in the expression for $T(n)$. The reccurence terms fall away for large n. 
 \end{enumerate}
 \end{enumerate}
 \end{document}
