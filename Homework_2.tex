@@ -4,6 +4,7 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage[margin=1.5in]{geometry}
+\usepackage{graphicx}
 \setlength{\textfloatsep}{0.1cm}
 \setlength{\floatsep}{0.1cm}
 
@@ -163,6 +164,95 @@ T(n) &= \epsilon O(n)\\
 \end{algorithm}
 }
 \item [(6 points) 3.] What are the worst-case runtimes of the solutions you have generated. (Just state the runtimes. You do not need to show your work.)\\\\
-Both algorithm operate in linear time with a worst case runtime of $O(n)$. In fact I can make the argument that both functions are $\Theta(n)$. I came to this conclusion from reading Tim Roughgarden's Algorithms Illuminated page 56-57 where he states then proves theorem $max\{f(n),g(n)\} = \Theta(f(n) + g(n))$. Both algorithms are bounded by some constant multiple of $n$, while algorithm 4 operates slightly slower than 3, they both follow this fact. If we take the max of the two, which would be algorithm 4, that still operates in linear time. From this information I came to the firm conclusion that both algorithms were operating in $\Theta(n)$. I hope this makes sense to you. I know it's a roundabout way of thinking about this problem but it's what helped me come to a conclusion so I thought I would include it.
+Both algorithm operate in linear time with a worst case runtime of $O(n)$. In fact I can make the argument that both functions are $\Theta(n)$. I came to this conclusion from reading Tim Roughgarden's Algorithms Illuminated page 56-57 where he states then proves theorem $max\{f(n),g(n)\} = \Theta(f(n) + g(n))$. Both algorithms are bounded by some constant multiple of $n$, while algorithm 4 operates slightly slower than 3, they both follow this fact. If we take the max of the two, which would be algorithm 4, that still operates in linear time. From this information I came to the firm conclusion that both algorithms were operating in $\Theta(n)$. I hope this makes sense to you. I know it's a roundabout way of thinking about this problem but it's what helped me come to a conclusion so I thought I would include it.\\\\
+Consider the following recurrence $T(n)$:
+
+\[
+T(n) = \left\{
+\begin{array}{cl}
+c & \textrm{ if } n = 1\\
+2T(\left\lfloor\frac{n}{4}\right\rfloor) + 16 & \textrm{ if } n > 1
+\end{array}
+\right.
+\]
+
+\begin{enumerate}
+\item [(10 points) 1.] Use the recursion tree or repeated substitution method to come up with a good guess for a bound $g (n)$ on the recurrence $T (n)$.\\\\
+Consider the following $2T(\left\lfloor\frac{n}{4}\right\rfloor) + 16 \leq 2T(\frac{n}{4}) + 16$ which is always true. From my readings, floor functions are ignored for the conveince of proofs until they matter. I don't like doing that but I don't see any other way to prove this.
+\includegraphics[scale = .5]{tree}\\
+This is the recursion tree I obtained. Let the depth of the tree be $\nabla$ and number of nodes be unknown for now, by looking at the tree I could discern that the level was $2^{\nabla}$ and the input for the recursive function was $\frac{n}{4^{\nabla}}$. So this is interesting, our inputs are decreasing faster than our levels are splitting. We will stop when our input becomes the identity, which means to find the number of levels we need to solve for $\nabla$ in the equation $\frac{n}{4^{\nabla}} = 1$. The level stops at $\nabla = \log_4{n}$. My guest for $g(n)$ will be that it is $\sum_{\\psi = 0}^{\log_4{n - 1}}2^{\psi} + 16\sqrt{n}$. My reasoning for this is that the cost we're adding up $16$ a $\sqrt{n}$ times since that is the number of nodes and the summation comes from properties of trees representing everything else in the tree EXCEPT the leaves. I added the minus 1 in there to distinguish the leaves from everything else.\\
+\begin{align*}
+g(n) &= \sum_{\psi = 0}^{\log_4{n - 1}}2^{\psi} + 16\sqrt{n}\\
+g(n) &= \frac{2^{\log_4{n - 1} + 1} - 1}{2 - 1} + 16\sqrt{n}\\
+g(n) &= 4^{\frac{1}{2}(\log_4{n - 1} + 1)} - 1 + 16\sqrt{n}\\
+g(n) &= 4^{\log_4{\sqrt{n - 1}} + \frac{1}{2})} - 1 + 16\sqrt{n}\\
+g(n) &= \sqrt{n - 1} + 2 - 1 + 16\sqrt{n}\\
+g(n) &= 16\sqrt{n} + \sqrt{n - 1} + 1\\
+g(n) &\epsilon \Theta(\sqrt{n})\\
+\end{align*}\\\\
+You didn't say to include this but I've been reading ahead. To check my answer I used two parts from a book I've been reading, Tim Roughgarden's Algorithms Illuminated pages 95-96 included on the next.\\\\
+\includegraphics[scale = 0.5]{SRF}\\
+\includegraphics[scale = 0.5]{mm}\\
+By the Master's Method I obtain $a = 2$, $b = 4$, $d = 0$ which gives us Case 3 since $a > b^d$. This gives me $O(n^{\log_4{2}}) = O(\sqrt{n})$. I have seen in other books make a stronger statement, saying that the function is $\Theta$ not $O$ with the master method but I trust Roughgarden more than the other sources I've found. Roughgarden has a good course on youtube in algorithmic game theory that I've taken notes from and has been teaching at Stanford and Coursera for many years.\\\\
+Let us now attempt to prove, by induction, that $g(n) \epsilon \Theta(\sqrt{n})$. Let us assume that $g(n) = 16\sqrt{n} + \sqrt{n - 1} + 1$.\\\\\\\\\\\\\\\\
+\textbf{Base Case}
+\begin{align*}
+g(1) &= 16\sqrt{1} + \sqrt{1 - 1} + 1\\
+g(1) &= 16 + 0 + 1\\
+g(1) &= 17\\
+g(1) &= C\\
+\end{align*}
+For the case of argument, I don't know whether $C=17$. No domain was given for $C$ but it would seem plausible to me that the base case has been satisfied.\\\\
+\textbf{Inductive Hypothesis}
+\begin{align*}
+T(n) &= 2^{1}T(\frac{n}{4^{1}}) + 16\\
+T(n) &= 2^{2}T(\frac{n}{4^{2}}) + 16\\
+T(n) &= 2^{3}T(\frac{n}{4^{3}}) + 16\\
+T(n) &= 2^{4}T(\frac{n}{4^{4}}) + 16\\
+&\vdots\\
+T(n) &= 2^{\nabla}T(1) + 16\\
+g(n) &= 16\sqrt{n} + \sqrt{n - 1} + 1\\
+g(n) &\epsilon \Theta(\sqrt{n})\\
+\end{align*}
+\textbf{Inductive Step}
+\begin{align*}
+T(n + 1) &= 2^{\nabla+1}T(0) + 16\\
+T(n + 1) &= 2(2^{\nabla}T(1)) + 16\\
+T(n + 1) &= 2(16\sqrt{n} + \sqrt{n - 1} + 1) + 16\\
+T(n + 1) &= 32\sqrt{n}+2\sqrt{n-1}+18\\
+\lim_{n\to\infty}{\frac{32\sqrt{n}+2\sqrt{n-1}+18}{\sqrt{n}}} &\to\\
+\to\lim_{n\to\infty}34 + 18\sqrt{\frac{1}{n}}-\frac{1}{n}-\frac{1}{4n^2}-\frac{1}{8n^3}&-\frac{1}{64n^4}-\frac{1}{128n^5}+O((\frac{1}{n})^{6})\\
+&\to 34\\
+&\therefore g(n)\epsilon \Theta(\sqrt{n})\\
+\lim_{n\to\infty}{\frac{32\sqrt{n}+2\sqrt{n-1}+18}{\sqrt{n}}} &\to\lim_{n\to\infty}32 + 2\sqrt{\frac{n-1}{n}} +0\\
+\to\lim_{n\to\infty}32+2\sqrt{\frac{1-\frac{1}{n}}{1}}&\to34\\
+\end{align*}\\
+The series above was generated using mathematica and is an example of a puiseaux series. I don't like dealing with roots and I especially don't like taking limits of them so when I can I use mathematica to perform tranformations of them to a more usuable form. I believe by the nature of asymptotics I've answered the next two questions. This isn't how it was done in class, you proved both seperately but I look my notes and they're confusing.\\\\
+I included simplifying of the root in fear of losing points due to not showing my work, but I used the series originally to solve the problem.\\  
+\item [(5 points) 2.] State and prove by induction a theorem showing $T (n) \in O(g(n))$.
+
+\item [(5 points) 3.] State and prove by induction a theorem showing $T (n) \in \Omega(g(n))$.
+\end{enumerate}
+\[
+T(n) = \left\{
+\begin{array}{cl}
+c & \textrm{ if } n = 1\\
+T(\left\lfloor\frac{n}{2}\right\rfloor) + T(\left\lfloor\frac{n}{4}\right\rfloor) + 4n & \textrm{ if } n > 1
+\end{array}
+\right.
+\]
+\\Before I present my recursion tree, let me for the sake of argument, state my assumptions: $2T(\frac{n}{4})+4n \leq T(\left\lfloor\frac{n}{2}\right\rfloor) + T(\left\lfloor\frac{n}{4}\right\rfloor) + 4n \leq 2T(\frac{n}{2})+4n$ since it is safe to assume that $T(n/4) \ll T(n/2)$. By the master method I expect that $g(n)$ should be sandwhiched in the following way $O(n) \ll g(n) \ll O(n\log{n})$\\
+\begin{enumerate}
+\item [(5 points) 1.] Draw the first six levels of the recursion tree by drawing all recursive calls of the same size on the same level. Make sure on each level you indicate the size of the recursive call and the number of recursive calls.
+
+\item [(5 points) 2.] Express the cost of all levels of the recursion tree as a sum over the cost of each level of the recursion tree.
+
+\item [(5 points) 3.] Give a function $g (n)$ and show it is an upper bound on the sum.
+
+\item [(5 points) 4.] State and prove by induction a theorem showing $T (n) \in O(g(n))$.
+
+\item [(5 points) 5.] State and prove by induction a theorem showing $T (n) \in \Omega(g(n))$.
+
+\end{enumerate}
 \end{enumerate}
 \end{document}
