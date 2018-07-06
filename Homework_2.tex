@@ -267,7 +267,7 @@ T(n) &\epsilon O(n)
 This is a good upper bound but to find the exact bound I found the Akra-Bazzi method to be much more powerful, being as it seems well suited for such problems.\\\\
 First we need to solve the equation $(\frac{1}{2})^p+(\frac{1}{4})^p=1$ obtaining $p=0.6942419136306174$.\\
 \begin{align*}
-T(n) &\epsilon \Theta(x^p(1+\int_{1}^{n}{u^{1-p}du}))\\
+T(n) &\epsilon \Theta(x^p(1+\int_{1}^{n}{u^{-p}du}))\\
 T(n) &\epsilon \Theta(-2.27056n^{0.694242}+3.27056n)\\
 T(n) &\epsilon \Theta(n)
 \end{align*}\\
@@ -306,7 +306,7 @@ T(n + 1) &=2(n*1) + 4n + 4\\
 T(n + 1) &=6n + 4\\
 T(n+1) &\epsilon \Theta(n)\
 \end{align*}\\
-\\To assess my work let's recap. I've shown now that $3.27056n\leq g(n)\leq 6n<7n$. Clearly it is a function of $n$ and grows linearly. From Akra-Bazzi I know that if $p < $ power of the no recurrence term, which in this case is true, $0.6942419136306174 < 1$ then we know that the $n$ term will dominate in the expression for $T(n)$. The reccurence terms fall away for large n. 
+\\To assess my work let's recap. I've shown now that $3.27056n\leq g(n)\leq 6n<7n$. Clearly it is a function of $n$ and grows linearly. From Akra-Bazzi I know that if $p < $ power of the additional term, which in this case is true, $0.6942419136306174 < 1$ then we know that the $n$ term will dominate in the expression for $T(n)$. The reccurence terms fall away for large n. 
 \end{enumerate}
 \end{enumerate}
 \end{document}
