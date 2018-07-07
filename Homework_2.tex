@@ -256,15 +256,15 @@ According to the master method, I should expect the number of leaves ($L$) to be
 Looking back at the last page, there's clearly a linear recurrance of that. Solving for a linear recurrence can be quite difficult, so what is it that I expect the recurrance to be? I expect the recurrence to be some expression containing $\frac{1}{2}+\frac{1}{4}=\frac{2}{4}+\frac{1}{4}=\frac{3}{4}$. That appears to indeed be the case. To solve for the overall cost I will make the assumption that this tree is geometric and follow the examples from CLRS, knowing what I know from the above linear recurrence.\\
 \item [(5 points) 3.] Give a function $g (n)$ and show it is an upper bound on the sum.
 \begin{align*}
-T(n) &= 4n + (\frac{3}{4})^1n+(\frac{3}{4})^2n+(\frac{3}{4})^3n+(\frac{3}{4})^4n+\dots\\
-T(n) &= 3n + (\frac{3}{4})^0n + (\frac{3}{4})^1n+(\frac{3}{4})^2n+(\frac{3}{4})^3n+(\frac{3}{4})^4n+\dots\\
-T(n) &= 3n + \sum_{\psi=0}^{\infty}{n(\frac{3}{4})^\psi}\\
-T(n) &= 3n + \frac{n}{1-\frac{3}{4}}\\
-T(n) &= 3n + 4n\\
-T(n) &= 7n\\
+T(n) &\leq 4n + (\frac{3}{4})^1n+(\frac{3}{4})^2n+(\frac{3}{4})^3n+(\frac{3}{4})^4n+\dots\\
+T(n) &\leq 3n + (\frac{3}{4})^0n + (\frac{3}{4})^1n+(\frac{3}{4})^2n+(\frac{3}{4})^3n+(\frac{3}{4})^4n+\dots\\
+T(n) &\leq 3n + \sum_{\psi=0}^{\infty}{n(\frac{3}{4})^\psi}\\
+T(n) &\leq 3n + \frac{n}{1-\frac{3}{4}}\\
+T(n) &\leq 3n + 4n\\
+T(n) &\leq 7n\\
 T(n) &\epsilon O(n)
 \end{align*}
-This is a good upper bound but to find the exact bound I found the Akra-Bazzi method to be much more powerful, being as it seems well suited for such problems.\\\\
+This is a good upper bound but to find the exact bound I found the Akra-Bazzi method to be much more powerful, being as it seems well suited for such problems. I know that this value obtained must be smaller than the actual function for $g(n)$ because it is a geometric series that goes to infinity. The actual geometric series for this function would be finite in nature.\\\\
 First we need to solve the equation $(\frac{1}{2})^p+(\frac{1}{4})^p=1$ obtaining $p=0.6942419136306174$.\\
 \begin{align*}
 T(n) &\epsilon \Theta(x^p(1+\int_{1}^{n}{u^{-p}du}))\\
