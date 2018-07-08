@@ -130,7 +130,7 @@ T(n) &= \epsilon O(n)\\
   T(n) =
     \begin{cases}
         1 & \text{if $n = 1$} \\
-        2T(\frac{n}{2}) + d & \text{if $k > 1$}
+        \frac{T(n-1)}{2} + \frac{T(n-2)}{2} + 1 & \text{if $k > 1$}
     \end{cases}
 \]
 }
