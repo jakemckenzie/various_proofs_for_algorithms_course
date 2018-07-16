@@ -1,0 +1,16 @@
+\documentclass[paper=a4,fontsize=11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{graphicx}
+\setlength{\textfloatsep}{0.1cm}
+\setlength{\floatsep}{0.1cm}
+
+\begin{document}
+\title{TCSS 343 - Assignment 1}
+\author{Jake McKenzie}
+\maketitle
+
+\end{document}

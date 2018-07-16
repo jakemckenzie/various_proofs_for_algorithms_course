@@ -1,12 +1,12 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath,amssymb,amsthm}
 \begin{document}
-\title{TCSS 343 - Challenge 1 - Proof by Induction}
+\title{TCSS 343 - Challenge - Proof by Induction}
 \author{Jake McKenzie}
 \maketitle
 \[\sqrt{1+2\sqrt{1+3\sqrt{1+4\sqrt{1+5\sqrt{\dots}}}}} = 3\]\\
 In order to properly prove this we will find a recurrance relationship. Infinite fractions and infinite roots of this nature are infact recurrance definitions. On their own, whenever a mathematician (or engineer/scientists) adds those dot dot dot to an equation it is meaningless. We need to be able to properly pin down just what it is those dots mean. \\\\
-To start with, it is not immediately evident what doing something infinitely often means. It is easy to see, when broken down to component parts, that the expression above was generated recursively. \\\\
+To start with, it is not immediately evident what doing something infinitely often means. It is easy to see, when broken do to component parts, that the expression above was generated recursively where the number 7 was replaced with the square root of dot dot dot illustrate that one should continue to apply the definition. \\
 \textbf{Our definition for the recurrance relationship:}\\\\
 \begin{align*}
 P(0):3 &= \sqrt{1+2(4)}\\
@@ -45,7 +45,7 @@ P(2):5 &= \sqrt{1+4(6)}\\
 P(3):6 &= \sqrt{1+5(7)}\\
 &\vdots\\
 P(k):k &= \sqrt{1+(k-1)(k+1)}\\
-\end{align*}\\\\\\\\\\\\\\\\
+\end{align*}
 \textbf{Inductive Step:}\\
 \begin{align*}
 P(0):3 &= \sqrt{1+2(4)}\\
@@ -56,7 +56,7 @@ P(3):6 &= \sqrt{1+5(7)}\\
 P(k):k &= \sqrt{1+(k-1)(k+1)}\\
 P(k + 1):k + 1 &= \sqrt{1+k(k+2)}\\
 \end{align*}\\
-Dealing with the radical on its own with the given expression up top is untenable, but this recurrance relation drastically reduces the complexity dramatically. Now we will introduce the inductive hypothesis.\\
+Dealing with radicals on their own with the given expression untenable, but this recurrance relation drastically reduces the complexity dramatically. Now we will introduce the inductive hypothesis.\\
 \begin{align*}
 k + 1 &= \sqrt{1+\sqrt{1+(k-1)(k+1)}(k+2)}\\
 k + 1 &= \sqrt{1+\sqrt{1+k^2-1}(k+2)}\\
@@ -67,5 +67,4 @@ k + 1 &= \sqrt{(k+1)^2}\\
 k + 1 &= k+1\\
 &\hspace{0.3cm}\qedsymbol
 \end{align*}
-\\\\Because the infinite radical is the continious application of this recursive definition, we can say that by induction the original expression is indeed equal to exactly 3. Notions of convergence are important when dealing with infinite expressions but I think that both the numerical analysis and recursive proof dispel problems, in the interest of time.
 \end{document}
