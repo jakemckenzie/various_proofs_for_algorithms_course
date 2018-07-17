@@ -11,6 +11,7 @@
 \title{TCSS 343 - Assignment 3}
 \author{Jake McKenzie}
 \maketitle
+\section{UNDERSTAND}
 In this problem use the Master Theorem to find and prove tight bounds for these recurrences (6 points each).\\\\
 To solve this problem I used the master theorem taken from CLRS. I used a bit of a stronger statement than what was stated in the theorem but they are equivalent mathematically due to the nature of limits. I will include the theorem for the reader's benefit. To check my work I decided to include what I obtained using the Akra-Bazzi method.\\
 \includegraphics[width=\linewidth]{mastertheorem.JPG}
@@ -24,6 +25,7 @@ c & \textrm{ if } n < 8\\
 \end{array}
 \right.
 \]
+By Master Method I obtain case 1:
 \begin{align*}
 \lim_{n\to\infty}{\frac{n\log{n}}{n^{\log_{8}{16}+\varepsilon}}}&=\lim_{n\to\infty}{\frac{n\log{n}}{n^{\frac{4}{3}+\frac{2}{3}}}}\\
 &=\lim_{n\to\infty}{(\frac{n}{n})(\frac{\log{n}}{n})}\rightarrow0\\
@@ -48,7 +50,7 @@ c & \textrm{ if } n < 4\\
 \end{array}
 \right.
 \]
-By Master Method I obtain:
+By Master Method I obtain case 2:
 \begin{align*}
     \lim_{n\to\infty}{\frac{n^{\frac{1}{3}}}{n^{\log_{8}{2}+\varepsilon}}}&=\lim_{n\to\infty}{\frac{n^{\frac{1}{3}}}{n^{\frac{1}{3}}}}\\
     &=\lim_{n\to\infty}{1}\rightarrow1\\
@@ -63,6 +65,80 @@ By Akra-Bazzi I obtain:
     T(n) &\in \Theta(n^{p}(1+\int_{1}^{n}{\frac{u^{\frac{1}{3}}}{u^{p+1}}du}))\\
     &\in \Theta(n^{\frac{1}{3}}+n^{\frac{1}{3}}\log{n})\\
     &\in \Theta(n^{\frac{1}{3}}\log{n})\\
-    \end{align*}
+\end{align*}
+\item
+\[
+T(n) = \left\{
+\begin{array}{cl}
+c & \textrm{ if } n < 2\\
+3T(n/2) + 9^n & \textrm{ if } n \geq 2
+\end{array}
+\right.
+\]
+By Master Method I obtain case 3:
+\begin{align*}
+    \lim_{n\to\infty}{\frac{9^n}{n^{\log_{3}{2}+\varepsilon}}}&=\lim_{n\to\infty}{\frac{9^n}{n^{\frac{\log{2}}{\log{3}}-(\frac{\log{2}}{\log{3}} + 1)}}}\\
+    &=\lim_{n\to\infty}{n9^n}\rightarrow\infty\\
+    &\in \Theta(9^n)\\
+\end{align*}
+This recurrence is not well suited for Akra-Bazzi.
+\item
+\[
+T(n) = \left\{
+\begin{array}{cl}
+c & \textrm{ if } n \leq 1\\
+3T(3n/5) + n^2 & \textrm{ if } n > 1
+\end{array}
+\right.
+\]
+By Master Method I obtain case 1:
+\begin{align*}
+    \lim_{n\to\infty}{\frac{n^2}{n^{\log_{\frac{5}{3}}{3}+\varepsilon}}}&=\lim_{n\to\infty}{\frac{n^2}{n^{\log_{\frac{5}{3}}{3}+(3-\log_{\frac{5}{3}}{3})}}}\\
+    &=\lim_{n\to\infty}{\frac{n^2}{n^3}}\rightarrow0\\
+    \log_{\frac{5}{3}}{3}&=2.15066...\\
+    &\in \Theta(n^{2.15066...})\\
+\end{align*}
+By Akra-Bazzi I obtain:
+\begin{align*}
+    3(3/5)^{p}&=1\\
+    p&=\log_{\frac{5}{3}}{3}
+\end{align*}
+\begin{align*}
+    T(n) &\in \Theta(n^{p}(1+\int_{1}^{n}{\frac{u^{2}}{u^{p+1}}du}))\\
+    &\in \Theta(7.63746 n^{2.15066...}-6.63746 n^{2})\\
+    &\in \Theta(n^{2.15066...})\\
+\end{align*}
+\item
+\[
+T(n) = \left\{
+\begin{array}{cl}
+c & \textrm{ if } n \leq 1\\
+3T(3n/5) + n^{2.5} & \textrm{ if } n > 1
+\end{array}
+\right.
+\]
+By Master Method I obtain case 3:
+\begin{align*}
+    \lim_{n\to\infty}{\frac{n^{2.5}}{n^{\log_{\frac{5}{3}}{3}+\varepsilon}}}&=\lim_{n\to\infty}{\frac{n^{2.5}}{n^{\log_{\frac{5}{3}}{3}+0.1}}}\\
+    &=\lim_{n\to\infty}{\frac{n^2.5}{n^{2.25}}}\rightarrow\infty\\
+    &=\lim_{n\to\infty}{n^{0.25...}}\rightarrow\infty\\
+    &\in \Theta(n^{2.5})\\
+\end{align*}
+\end{enumerate}
+\begin{enumerate}
+\section{EXPLORE}
+\item 
+For the following problems stated as pseudo-code, let $A[\ell\dots r]$ denote the sublist of the integer list $A$ from the $\ell$-th to the $r$-th element inclusive, let Cubic($A[1\dots n]$) denote an algorithm that runs in time $\Theta(n^3)$, and let Swift($A[1\dots n]$) denote an algorithm that runs in time $\Theta(n\log(\log n))$.\\
+{\ttfamily
+$\phantom{A}$\\
+$\phantom{---}$ Three($A[1\dots n]$)\\
+$\phantom{--- ---}$ If $n \leq 1$ Then Return // nothing to do\\
+$\phantom{--- ---}$ Cubic($A[1\dots n]$)\\
+$\phantom{--- ---}$ Three($A[1\dots\lfloor\frac{n}{2}\rfloor]$)\\
+$\phantom{--- ---}$ Three($A[\lfloor\frac{n}{4}\rfloor+1\dots \lfloor\frac{3n}{4}\rfloor]$)\\
+$\phantom{--- ---}$ Three($A[\lfloor\frac{n}{2}\rfloor+1\dots n]$)\\
+$\phantom{---}$ End Three.
+}
+
 \end{enumerate}
 \end{document}
