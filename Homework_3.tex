@@ -35,8 +35,12 @@ $$T(n)\in\Theta(n^{\frac{4}{3}})$$\\
 By Akra-Bazzi I obtain:\\
 \begin{align*}
 16(1/8)^{p}&=1\\
-p&=\frac{4}{3}\\
+p&=\frac{4}{3}
+\end{align*}
+\begin{align*}
 T(n) &= \Theta(n^{p}(1+\int_{1}^{n}{\frac{u\log{u}}{u^{p+1}}du}))\\
+&= \Theta(-9n+10n^{\frac{4}{3}}-3n\log{n})\\
+&= \Theta(n^{\frac{4}{3}})\\
 \end{align*}
 \end{enumerate}
 \end{document}
