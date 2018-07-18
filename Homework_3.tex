@@ -177,6 +177,51 @@ By Akra-Bazzi I obtain:
     T(n) &\in \Theta(n^{p}(1+\int_{1}^{n}{\frac{u^{3}}{u^{p+1}}du}))\\
     &\in \Theta(0.293305 n^{1.58496}+0.706695 n^{3})\\
     &\in \Theta(n^{3})\\
+\end{align*}\\
+{\ttfamily
+$\phantom{A}$\\
+$\phantom{---}$ One($A[1\dots n]$)\\
+$\phantom{--- ---}$ If $n \leq 1$ Then Return // nothing to do\\
+$\phantom{--- ---}$ Swift($A[1\dots n]$)\\
+$\phantom{--- ---}$ One($A[1\dots\lfloor\frac{n}{2}\rfloor]$)\\
+$\phantom{---}$ End One.
+}\\
+\item [(6 points) 3.] State a recurrence that gives the complexity $T(n)$ for algorithm \texttt{One}.\\
+{\ttfamily
+$\phantom{A}$\\
+$\phantom{---}$ One($A[1\dots n]$)O(1)\\
+$\phantom{--- ---}$ If $n \leq 1$ Then Return // nothing to do O(1)\\
+$\phantom{--- ---}$ Swift($A[1\dots n]$)O($n\log{\log{n}}$)\\
+$\phantom{--- ---}$ One($A[1\dots\lfloor\frac{n}{2}\rfloor]$) T($\frac{n}{2}$)\\
+$\phantom{---}$ End One.
+}\\
+Which gives me the following recurrece relation:\\
+\[
+T(n) = \left\{
+\begin{array}{cl}
+c & \textrm{ if } n \leq 1\\
+T(\frac{n}{2}) + n\log{\log{n}} & \textrm{ if } n > 1
+\end{array}
+\right.
+\]
+\item [(12 points) 4.] Find the tight complexity of algorithm \texttt{One}.\\
+\begin{align*}
+    \lim_{n\to\infty}{\frac{n\log{\log{n}}}{n^{\log{1}+\varepsilon}}}&=\lim_{n\to\infty}{\frac{n\log{\log{n}}}{n^{0+\gamma}}}\\
+    \gamma&=0.577216\\
+    &=\lim_{n\to\infty}{n^{0.422784}\log{\log{n}}}\rightarrow\infty\\
+    T(n)&\in \Theta(n\log{\log{n}})\\
 \end{align*}
+By Akra-Bazzi I obtain:
+\begin{align*}
+    (\frac{1}{2})^{p}&=1\\
+    p&=0
+\end{align*}\\
+As for computing this integral, it is non-elementary. It involes computing the $Li(u)$ which I've looked up and it defintely grows slower than any of the functions we normally use.\\\\
+It's worth noting that we don't need to work about that, Akra-Bazzi tells us that if $p<k$ then we get case 3 of the master theorem.
+\begin{align*}
+    T(n) &\in \Theta(n^{p}(1+\int_{1}^{n}{\frac{u\log{\log{u}}}{u^{p+1}}du}))\\
+    &\in \Theta(1 + \gamma - i \pi + n\log{\log{n}} - Li(n))\\
+    &\in \Theta(n\log{\log{n}})\\
+\end{align*}\\
 \end{enumerate}
 \end{document}
