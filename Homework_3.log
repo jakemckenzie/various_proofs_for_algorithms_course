@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.24)  17 JUL 2018 23:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.24)  22 JUL 2018 01:09
 entering extended mode
 **./Homework_3.tex
 (Homework_3.tex
@@ -248,7 +248,7 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 LaTeX Warning: Unused global option(s):
     [paper=a4,fontsize=11pt].
 
-No file Homework_3.aux.
+(Homework_3.aux)
 \openout1 = `Homework_3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -475,33 +475,173 @@ Underfull \hbox (badness 10000) in paragraph at lines 225--226
 
  []
 
-[6] (Homework_3.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--247
+
+ []
+
+[6] [7]
+<table.png, id=37, 86.9649pt x 259.9311pt>
+File: table.png Graphic file (type png)
+<use table.png>
+Package pdftex.def Info: table.png  used on input line 248.
+(pdftex.def)             Requested size: 173.92935pt x 519.8609pt.
+ [8 <./table.png>]
+<code1.jpg, id=43, 804.75656pt x 704.6325pt>
+File: code1.jpg Graphic file (type jpg)
+<use code1.jpg>
+Package pdftex.def Info: code1.jpg  used on input line 250.
+(pdftex.def)             Requested size: 397.485pt x 348.02542pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 250--251
+[][] 
+ []
+
+[9 <./code1.jpg>]
+<code2.jpg, id=47, 563.85657pt x 724.95844pt>
+File: code2.jpg Graphic file (type jpg)
+<use code2.jpg>
+Package pdftex.def Info: code2.jpg  used on input line 252.
+(pdftex.def)             Requested size: 397.485pt x 511.05151pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 252--253
+[][] 
+ []
+
+[10 <./code2.jpg>]
+<code3.jpg, id=51, 590.95781pt x 684.30656pt>
+File: code3.jpg Graphic file (type jpg)
+<use code3.jpg>
+Package pdftex.def Info: code3.jpg  used on input line 254.
+(pdftex.def)             Requested size: 397.485pt x 460.27898pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 254--255
+[][] 
+ []
+
+[11 <./code3.jpg>]
+<code4.jpg, id=55, 758.08218pt x 706.89093pt>
+File: code4.jpg Graphic file (type jpg)
+<use code4.jpg>
+Package pdftex.def Info: code4.jpg  used on input line 256.
+(pdftex.def)             Requested size: 397.485pt x 370.6487pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 256--257
+[][] 
+ []
+
+[12 <./code4.jpg>]
+<code5.jpg, id=59, 745.28438pt x 694.84593pt>
+File: code5.jpg Graphic file (type jpg)
+<use code5.jpg>
+Package pdftex.def Info: code5.jpg  used on input line 258.
+(pdftex.def)             Requested size: 397.485pt x 370.57793pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 258--259
+[][] 
+ []
+
+[13 <./code5.jpg>]
+<code6.jpg, id=64, 706.89093pt x 663.22781pt>
+File: code6.jpg Graphic file (type jpg)
+<use code6.jpg>
+Package pdftex.def Info: code6.jpg  used on input line 260.
+(pdftex.def)             Requested size: 397.485pt x 372.93317pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 260--261
+[][] 
+ []
+
+[14 <./code6.jpg>]
+<code7.jpg, id=68, 631.60968pt x 517.18219pt>
+File: code7.jpg Graphic file (type jpg)
+<use code7.jpg>
+Package pdftex.def Info: code7.jpg  used on input line 262.
+(pdftex.def)             Requested size: 397.485pt x 325.47928pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 262--263
+[][] 
+ []
+
+[15 <./code7.jpg>]
+<code8.jpg, id=72, 983.92593pt x 466.74374pt>
+File: code8.jpg Graphic file (type jpg)
+<use code8.jpg>
+Package pdftex.def Info: code8.jpg  used on input line 264.
+(pdftex.def)             Requested size: 397.485pt x 188.55301pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 264--265
+[][] 
+ []
+
+[16 <./code8.jpg>] (Homework_3.aux) ) 
 Here is how much of TeX's memory you used:
- 5102 strings out of 493305
- 78254 string characters out of 3127627
+ 5166 strings out of 493305
+ 79057 string characters out of 3127627
  183621 words of memory out of 3000000
- 8555 multiletter control sequences out of 15000+200000
- 11458 words of font info for 52 fonts, out of 3000000 for 9000
+ 8591 multiletter control sequences out of 15000+200000
+ 11866 words of font info for 60 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,38p,366b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Epimetheus/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Epimetheus/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Epimetheus/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:
-/Users/Epimetheus/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi7.pfb><C:/Users/Epimetheus/AppData/Local/Programs/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr10.pfb><C:/Users/Epimetheus/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Epimetheus/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Epim
-etheus/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pf
-b><C:/Users/Epimetheus/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr7.pfb><C:/Users/Epimetheus/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Epimetheus/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Epimetheus/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Homework_3.pdf (6 pages, 180462 bytes).
+ 41i,12n,38p,516b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Epimetheus/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Epimetheus/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Us
+ers/Epimetheus/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb><C:/Users/Epimetheus/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmmi7.pfb><C:/Users/Epimetheus/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Epimetheus/AppData/Loca
+l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Epimet
+heus/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb
+><C:/Users/Epimetheus/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmr5.pfb><C:/Users/Epimetheus/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb><C:/Users/Epimetheus/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Epimetheus/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/E
+pimetheus/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt
+10.pfb>
+Output written on Homework_3.pdf (16 pages, 945498 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
+ 114 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 9734 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 9779 words of extra memory for PDF output out of 10000 (max. 10000000)
 

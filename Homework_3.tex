@@ -224,4 +224,43 @@ It's worth noting that we don't need to work about that, Akra-Bazzi tells us tha
     &\in \Theta(n\log{\log{n}})\\
 \end{align*}\\
 \end{enumerate}
+\section{PROGRAMMING}
+Quicksort runs in it's worst case when it chooses the greatest or smallest element for each successive pivot. That recurrence relation can be written in the form of 
+
+\[
+T(n) = \left\{
+\begin{array}{cl}
+c & \textrm{ if } n < 1\\
+T(n - 1) + O(n) & \textrm{ if } n \geq 1
+\end{array}
+\right.
+\]
+We've solved this recurrence relation plenty times before and the solution will just be stated as $\Theta(n^2)$. Now in practice was this what I obtained? By in large, on the 50 or so times I ran this program, this is what I obtained as a upper bound.\\\\
+I was able to completely get rid of stackoverflows by implementing XORSwap, which is my favourite way to reduce the size of the stack. This is not the best swaping without a temporary variable routine in Java, arithmetic swap performs better due to compiler optimizations(arithmetic operators are used more often than bitwise ones so the compiler writers have written better optimizations for airthmetic) but it avoids overflows and leads to more desirable behaivor generally for this reason.\\\\
+As for the space complexity I'm going to be honest and I couldn't make heads or tails of the space complexity of this algorithm from what I wrote. I think consulting the literature is important when this happens so here we go:\\\\
+"For Quicksort, the combination of end- recursion removal and a policy of processing the smaller of the two subfiles first turns out to ensure that the stack need only contain room for about, lg N entries, since each entry on the stack after the top one must represent a subfile less than half the size of the previous entry." ~ Robert Sedgwick's Algorithms\\\\
+There two possible correctors to this question of space complexity. $\log{n}$ and $n$ so which is it? Sedgwick seems to tell me it's $\log{n}$ which makes sense but if this true, why is that by implementing XORSwap I removed stackoverflows? Well let me consult James Aspnes lecture notes from a Computational Complexity Theory at Yale:\\\\
+"There is no overhead in space complexity (except possibly dealing with the issue of a non-writable input tape with multiple heads), but the time complexity of a computation can easily go from $T$ to $O(T^2)$.\\\\
+(chapter 3 page 14 http://www.cs.yale.edu/homes/aspnes/classes/468/notes.pdf)
+What this telling me is that space complexity is less fickle and due to the nature of how information is stored it really does matter what the constant is. By reducing the number of swaps by a 1/3 ten times in my program I considerably dropped the space quicksort was using on the stack. But in both cases it was $\Theta(\log{n})$ but inorder to run it I needed to worry about that constant.\\\\
+The excution times and the code will be included below. It's worth noting here for the reader that I did implement XORShift to generate better random numbers. I think this is a best practice. Just from eyeballing it, before included it I was getting numbers that seemed a little too good. The runningtimes are more in line with what I expect with a more normally distributed set of numbers.\\\\
+\newpage
+\includegraphics[scale = 2]{table.png}
+\newpage
+\includegraphics[width=\linewidth]{code1.jpg}
+\newpage
+\includegraphics[width=\linewidth]{code2.jpg}
+\newpage
+\includegraphics[width=\linewidth]{code3.jpg}
+\newpage
+\includegraphics[width=\linewidth]{code4.jpg}
+\newpage
+\includegraphics[width=\linewidth]{code5.jpg}
+\newpage
+\includegraphics[width=\linewidth]{code6.jpg}
+\newpage
+\includegraphics[width=\linewidth]{code7.jpg}
+\newpage
+\includegraphics[width=\linewidth]{code8.jpg}
+\newpage
 \end{document}
